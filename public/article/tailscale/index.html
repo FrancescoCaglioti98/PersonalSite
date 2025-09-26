@@ -139,7 +139,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "275"
+    "wordCount": "909"
   }]
   </script>
 
@@ -223,6 +223,20 @@
 
 
 
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/lib/lite-youtube-embed/lite-yt-embed.badabc6055b427669bbcf084097334cdf2029c85696c4a56e25239825d3571d26ef82b775ba19032ccd52135ccb412c9ba79da4e9e9b6f3939a6178a5f65ee5d.css"
+    integrity="sha512-utq8YFW0J2abvPCECXM0zfICnIVpbEpW4lI5gl01cdJu&#43;Ct3W6GQMszVITXMtBLJunnaTp6bbzk5pheKX2XuXQ==">
+  
+  
+  <script
+    type="text/javascript"
+    src="/lib/lite-youtube-embed/lite-yt-embed.58a8a22aed9d1cd05780869df4b0d87972fcd144a9eaff8f9a1453e58e6521c5a89ccd80bdb9f48e25ae5ee87b98bd9de51b14dd9988c60e4c89630433292084.js"
+    integrity="sha512-WKiiKu2dHNBXgIad9LDYeXL80USp6v&#43;PmhRT5Y5lIcWonM2Avbn0jiWuXuh7mL2d5RsU3ZmIxg5MiWMEMykghA=="></script>
 
 
 
@@ -694,7 +708,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-09-24T00:00:00&#43;00:00">24 September 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2025-09-24T00:00:00&#43;00:00">24 September 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
     
 
     
@@ -739,7 +753,16 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#homelab">HomeLab</a></li>
-    <li><a href="#tailscale">Tailscale</a></li>
+    <li><a href="#sottoscrizione-tailscale">Sottoscrizione Tailscale</a></li>
+    <li><a href="#nginx-proxy-manager">Nginx Proxy Manager</a>
+      <ul>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+        <li><a href="#configurazione-nginx">Configurazione Nginx</a></li>
+        <li><a href="#configurazione-tailscale">Configurazione Tailscale</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurazione-finale">Configurazione finale</a></li>
+    <li><a href="#conclusione">Conclusione</a></li>
   </ul>
 </nav>
   </div>
@@ -754,7 +777,16 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#homelab">HomeLab</a></li>
-    <li><a href="#tailscale">Tailscale</a></li>
+    <li><a href="#sottoscrizione-tailscale">Sottoscrizione Tailscale</a></li>
+    <li><a href="#nginx-proxy-manager">Nginx Proxy Manager</a>
+      <ul>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+        <li><a href="#configurazione-nginx">Configurazione Nginx</a></li>
+        <li><a href="#configurazione-tailscale">Configurazione Tailscale</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurazione-finale">Configurazione finale</a></li>
+    <li><a href="#conclusione">Conclusione</a></li>
   </ul>
 </nav>
   </div>
@@ -801,12 +833,12 @@ di “<strong>away from zone</strong>” di HomeAssistant, ma nulla che una solu
 del quale è presente un container LCX per il Tunnel Cloudflare, che fino a oggi si è occupato (insieme al pannello di configurazione sulla dashboard Cloudflare)
 di svolgere funzioni di Reverse Proxy per servizi che volevo rendere disponibili al di fuori della rete.</p>
 
-<h2 class="relative group">Tailscale 
-    <div id="tailscale" class="anchor"></div>
+<h2 class="relative group">Sottoscrizione Tailscale 
+    <div id="sottoscrizione-tailscale" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tailscale" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#sottoscrizione-tailscale" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -814,10 +846,182 @@ di svolgere funzioni di Reverse Proxy per servizi che volevo rendere disponibili
 un provider VPN con un ottimo piano gratuito per hobbisti basato su WireGuard.
 A questo punto ho creato un account, collegato il mio pc e il telefono per la prima configurazione e
 ho iniziato a progettare quello che sarebbe necessario configurare da qua in poi.</p>
-<p>Ho deciso quindi di utilizzare un nuovo container LCX di Nginx Proxy Manager (<a
+
+<h2 class="relative group">Nginx Proxy Manager 
+    <div id="nginx-proxy-manager" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nginx-proxy-manager" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Ho deciso di utilizzare un nuovo container LCX di Nginx Proxy Manager (<a
   href="https://community-scripts.github.io/ProxmoxVE/scripts?id=nginxproxymanager"
     target="_blank"
-  >https://community-scripts.github.io/ProxmoxVE/scripts?id=nginxproxymanager</a>) per svolgere le funzioni di Reverse Proxy.</p>
+  >https://community-scripts.github.io/ProxmoxVE/scripts?id=nginxproxymanager</a>) per svolgere le funzioni di Reverse Proxy.
+Una volta terminata l&rsquo;installazione mi è bastato configurare il mio certificato SSL alla voce &ldquo;SSL Certificates&rdquo; utilizzando Cloudflare come provider.</p>
+
+<h3 class="relative group">Cloudflare 
+    <div id="cloudflare" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cloudflare" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Per poterlo inserire come provider per Let&rsquo;s Encrypt è necessario generare un token dalla dashboard di Cloudflare, andando alla voce <strong>Gestisci Account&gt;Token API</strong>, da qui basterà creare un nuovo token con il permesso &ldquo;Edit DNS Zone&rdquo; e salviamolo da parte per dopo.<br>
+Inoltre, una volta che siamo qua sopra, sarà necessario andare al pannello del dominio e alla voce <strong>DNS</strong>, dove bisognerà aggiungere una nuova voce configurata ad hoc per la rete locale.
+
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Creazione Wildcard DNS" src="./cloudflare_wildcard.png">
+
+  
+</figure>
+</p>
+
+<h3 class="relative group">Configurazione Nginx 
+    <div id="configurazione-nginx" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#configurazione-nginx" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Dopo essere tornati su Nginx possiamo terminare la configurazione del certificato SSL ed inserire il nostro primo host da raggiungere.
+Basterà andare alla voce &ldquo;Add SSL Certificate&rdquo; e selezionare Let&rsquo;s Encrypt.<br>
+A questo punto inserire il proprio dominio, spuntare la voce &ldquo;Use DNS Challenge&rdquo; e andare a configurarlo in base al proprio provider, in questo caso Cloduflare.
+
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Nginx Domain Configuration" src="./nginx_domain_configuration.png">
+
+  
+</figure>
+</p>
+<p>Ultima configurazione da fare su nginx, per essere certi del suo funzionamento in futuro, è quella di andare a registrare un nuovo host.<br>
+Lo si può fare direttamente alla voce &ldquo;<strong>Hosts &gt; Proxy Hosts</strong>&rdquo; e configurare il nuovo proxy.</p>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #e63946"
+  
+  >
+  <span
+    
+      class="pe-3 flex items-center" style="color: #1d3557"
+    
+    >
+    <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+</span>
+  </span>
+
+  <span
+    
+      style="color: #f1faee"
+    
+    ><strong>Warning!</strong> Mi Raccomando utilizzare lo stesso dominio inserito in precedenza.</span>
+</div>
+
+<p>Una volta configurato il nuovo proxy provate a collegarvi direttamente con il nuovo URL inserito e verificate di riuscire a raggiungere il vostro servizio.</p>
+<p>Per qualsiasi altro dubbio su come configurare Nginx includo un video di Wolfgang che si occupa molto bene di spiegare le basi e come metterlo in funzione utilizzando DuckDNS.</p>
+<lite-youtube videoid="qlcVx-k-02E" playlabel="qlcVx-k-02E" params=""></lite-youtube>
+
+
+<h3 class="relative group">Configurazione Tailscale 
+    <div id="configurazione-tailscale" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#configurazione-tailscale" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Con tailscale ho avuto qualche difficoltà nel poter accedere alla mia rete locale, perché ero convinto per qualche motivo bastasse configurare un host per avere, nel caso di nginx, subito accesso alla rete circostante, purtroppo ho imparato a mie spese che non è questo il caso, ma partiamo per gradi.</p>
+<p>Prima di tutto bisogna installare <a
+  href="https://community-scripts.github.io/ProxmoxVE/scripts?id=add-tailscale-lxc"
+    target="_blank"
+  >l&rsquo;add-on</a> di tailscale su di un container lcx, nel mio caso ho deciso di farlo nello stesso di Nginx, per facilità di utilizzo, ma potete crearne uno ad hoc solo per l&rsquo;occasione.</p>
+<p>Una volta fatto questo basta continuare a seguire la documentazione per averlo funzionante come se fosse un semplice nodo in più nella rete di Tailscale. Ma non è quello che vogliamo, vogliamo che questo nodo ci faccia da &ldquo;ponte&rdquo; rendendo disponibile una subnet per il resto dei dispositivi connessi alla VPN.</p>
+<p>Per renderlo un ponte con il resto della rete bisogna eseguire un paio di azioni, lascio qui i link:</p>
+<ul>
+<li><a
+  href="https://tailscale.com/kb/1019/subnets"
+    target="_blank"
+  >Subnet Route</a></li>
+<li><a
+  href="https://tailscale.com/kb/1103/exit-nodes"
+    target="_blank"
+  >Exit Nodes</a></li>
+</ul>
+<p>Per spiegare passo passo ciò che ho fatto:</p>
+<ol>
+<li>Abilitare Ip-Forwarding</li>
+<li>Pubblicare le subnet da me interessate su tailscale</li>
+<li>Abilitare queste subnet dal pannello di controllo di tailscale</li>
+<li>Configurare il client di tailscale per permettere le connessioni verso altri nodi della rete locale</li>
+<li>Segnalato il client tailscale come &ldquo;exit-node&rdquo;</li>
+</ol>
+<p>In pratica queste due pagine della wiki mi hanno permesso di terminare esattamente la configurazione come la desideravo io, cioé accesso da remoto alla mia rete domestica, come se non avessi mai lasciato casa.</p>
+
+<h2 class="relative group">Configurazione finale 
+    <div id="configurazione-finale" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#configurazione-finale" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Come detto in precedenza, ho alcuni servizi che non voglio che siano MAI accessibili dal mondo esterno direttamente, come ad esempio Nginx, ma altri che per poter funzionare correttamente necessitano di avere un tunnel correttamente configurato, prendi HomeAssistant.<br>
+Ho deciso quindi di applicare una regola ibrida per i miei bisogni, lasciando alcuni container protetti dalla VPN ed altri accessibili via tunnel Cloudflare.
+Per fare alcuni esempi:</p>
+<ul>
+<li>VPN
+<ul>
+<li>Nginx</li>
+<li>Vikunja</li>
+<li>Trilium</li>
+</ul>
+</li>
+<li>Tunnel
+<ul>
+<li>HomeAssistant</li>
+<li>Paperless</li>
+</ul>
+</li>
+</ul>
+
+<h2 class="relative group">Conclusione 
+    <div id="conclusione" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#conclusione" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Penso che si sia trattato di un ottimo esperimento per imparare ad utilizzare Tailscale e sicuramente continuerò ad utilizzarlo (ho già in mente alcune cose con n8n), penso inoltre che dovrebbe essere la scelta di default per molte soluzioni quando si decide di hostare dei propri servizi in casa.</p>
 
           
           
