@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vpn on Francesco Caglioti</title>
-    <link>http://localhost:1313/categories/vpn/</link>
+    <link>https://your_domain.com/categories/vpn/</link>
     <description>Recent content in Vpn on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
     <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
     
-    <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://your_domain.com/categories/vpn/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>VPN Tailscale</title>
-      <link>http://localhost:1313/article/tailscale/</link>
+      <link>https://your_domain.com/article/tailscale/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Francesco Caglioti)</author>
-      <guid>http://localhost:1313/article/tailscale/</guid>
+      <guid>https://your_domain.com/article/tailscale/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/article/tailscale/feature-homelab-tailscale.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://your_domain.com/article/tailscale/feature-homelab-tailscale.png" />
     </item>
     
   </channel>

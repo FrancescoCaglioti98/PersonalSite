@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Videoes on Francesco Caglioti</title>
-    <link>http://localhost:1313/video/</link>
+    <link>https://your_domain.com/video/</link>
     <description>Recent content in Videoes on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
     <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
     
-    <atom:link href="http://localhost:1313/video/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://your_domain.com/video/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>http://localhost:1313/video/test/</link>
+      <link>https://your_domain.com/video/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Francesco Caglioti)</author>
-      <guid>http://localhost:1313/video/test/</guid>
+      <guid>https://your_domain.com/video/test/</guid>
       <description></description>
       
     </item>
