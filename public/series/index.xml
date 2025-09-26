@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Francesco Caglioti</title>
-    <link>https://your_domain.com/series/</link>
+    <link>https://fcaglioti.cc/series/</link>
     <description>Recent content in Series on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>it</language>
     <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
     <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
     
-    <atom:link href="https://your_domain.com/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fcaglioti.cc/series/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

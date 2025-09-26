@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Francesco Caglioti</title>
-    <link>https://your_domain.com/categories/</link>
+    <link>https://fcaglioti.cc/categories/</link>
     <description>Recent content in Categories on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>it</language>
     <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
     <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
     
-    <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://your_domain.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fcaglioti.cc/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Homelab</title>
-      <link>https://your_domain.com/categories/homelab/</link>
+      <link>https://fcaglioti.cc/categories/homelab/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Francesco Caglioti)</author>
-      <guid>https://your_domain.com/categories/homelab/</guid>
+      <guid>https://fcaglioti.cc/categories/homelab/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Tailscale</title>
-      <link>https://your_domain.com/categories/tailscale/</link>
+      <link>https://fcaglioti.cc/categories/tailscale/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Francesco Caglioti)</author>
-      <guid>https://your_domain.com/categories/tailscale/</guid>
+      <guid>https://fcaglioti.cc/categories/tailscale/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Vpn</title>
-      <link>https://your_domain.com/categories/vpn/</link>
+      <link>https://fcaglioti.cc/categories/vpn/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Francesco Caglioti)</author>
-      <guid>https://your_domain.com/categories/vpn/</guid>
+      <guid>https://fcaglioti.cc/categories/vpn/</guid>
       <description></description>
       
     </item>
