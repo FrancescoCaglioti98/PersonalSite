@@ -1,6 +1,6 @@
 disabled = false
-languageCode = "it"
-languageName = "Italian"
+languageCode = "en"
+languageName = "English"
 weight = 1
 title = "Francesco Caglioti"
 
@@ -16,13 +16,13 @@ title = "Francesco Caglioti"
 
 [params.author]
   name = "Francesco Caglioti"
-   email = "youremail@example.com"
+   email = "personal@fcaglioti.cc"
    image = "https://avatars.githubusercontent.com/u/91256439?v=4"
    imageQuality = 96
-   headline = "I'm only human"
+   headline = "A passionate Web Developer who preferes Backend Development."
    bio = "A little bit about you"
    links = [
-     { email = "mailto:hello@your_domain.com" },
+     { email = "mailto:personal@fcaglioti.cc" },
 #     { link = "https://link-to-some-website.com/" },
      { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
 #     { apple = "https://www.apple.com" },

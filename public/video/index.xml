@@ -5,9 +5,9 @@
     <link>https://fcaglioti.cc/video/</link>
     <description>Recent content in Videoes on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
-    <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
+    <language>en</language>
+    <managingEditor>personal@fcaglioti.cc (Francesco Caglioti)</managingEditor>
+    <webMaster>personal@fcaglioti.cc (Francesco Caglioti)</webMaster>
     
     <atom:link href="https://fcaglioti.cc/video/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
       <title></title>
       <link>https://fcaglioti.cc/video/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Francesco Caglioti)</author>
+      <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
       <guid>https://fcaglioti.cc/video/test/</guid>
       <description></description>
       

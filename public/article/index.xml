@@ -5,9 +5,9 @@
     <link>https://fcaglioti.cc/article/</link>
     <description>Recent content in Articles on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
-    <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
+    <language>en</language>
+    <managingEditor>personal@fcaglioti.cc (Francesco Caglioti)</managingEditor>
+    <webMaster>personal@fcaglioti.cc (Francesco Caglioti)</webMaster>
     
     <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fcaglioti.cc/article/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
       <title>VPN Tailscale</title>
       <link>https://fcaglioti.cc/article/tailscale/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Francesco Caglioti)</author>
+      <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
       <guid>https://fcaglioti.cc/article/tailscale/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://fcaglioti.cc/article/tailscale/feature-homelab-tailscale.png" />

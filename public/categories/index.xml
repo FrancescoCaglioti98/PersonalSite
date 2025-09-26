@@ -5,9 +5,9 @@
     <link>https://fcaglioti.cc/categories/</link>
     <description>Recent content in Categories on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <managingEditor>youremail@example.com (Francesco Caglioti)</managingEditor>
-    <webMaster>youremail@example.com (Francesco Caglioti)</webMaster>
+    <language>en</language>
+    <managingEditor>personal@fcaglioti.cc (Francesco Caglioti)</managingEditor>
+    <webMaster>personal@fcaglioti.cc (Francesco Caglioti)</webMaster>
     
     <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fcaglioti.cc/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
       <title>Homelab</title>
       <link>https://fcaglioti.cc/categories/homelab/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Francesco Caglioti)</author>
+      <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
       <guid>https://fcaglioti.cc/categories/homelab/</guid>
       <description></description>
       
@@ -25,7 +25,7 @@
       <title>Tailscale</title>
       <link>https://fcaglioti.cc/categories/tailscale/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Francesco Caglioti)</author>
+      <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
       <guid>https://fcaglioti.cc/categories/tailscale/</guid>
       <description></description>
       
@@ -35,7 +35,7 @@
       <title>Vpn</title>
       <link>https://fcaglioti.cc/categories/vpn/</link>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Francesco Caglioti)</author>
+      <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
       <guid>https://fcaglioti.cc/categories/vpn/</guid>
       <description></description>
       
