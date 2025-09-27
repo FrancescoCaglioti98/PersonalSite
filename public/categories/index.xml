@@ -9,7 +9,17 @@
     <managingEditor>personal@fcaglioti.cc (Francesco Caglioti)</managingEditor>
     <webMaster>personal@fcaglioti.cc (Francesco Caglioti)</webMaster>
     
-    <lastBuildDate>Wed, 24 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fcaglioti.cc/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fcaglioti.cc/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cv</title>
+      <link>https://fcaglioti.cc/categories/cv/</link>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+      <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
+      <guid>https://fcaglioti.cc/categories/cv/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Homelab</title>
