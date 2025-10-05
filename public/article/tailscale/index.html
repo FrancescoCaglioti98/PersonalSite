@@ -37,11 +37,13 @@
     
     
     
+    
+    
     <link
             type="text/css"
             rel="stylesheet"
-            href="/css/main.bundle.min.92c1c50fa826bc6a11b7504583600c7fde48ee850ce96cc703b849a6f9efc19618c355daeccb8b74358d5d0cf0f58a5df67723b7f16931761a3c1be0ce7b0370.css"
-            integrity="sha512-ksHFD6gmvGoRt1BFg2AMf95I7oUM6WzHA7hJpvnvwZYYw1Xa7MuLdDWNXQzw9Ypd9ncjt/FpMXYaPBvgznsDcA==">
+            href="/css/main.bundle.min.f875dda8a6dc16f33adb8873681506c07444631be7e42b7575718d40698db0db7cd237ac4306f361ed9daaa2f828ff344a9fc7f845cf0217dcbc9360d395f0f9.css"
+            integrity="sha512-&#43;HXdqKbcFvM624hzaBUGwHREYxvn5Ct1dXGNQGmNsNt80jesQwbzYe2dqqL4KP80Sp/H&#43;EXPAhfcvJNg05Xw&#43;Q==">
 
     
     
@@ -139,7 +141,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "909"
+    "wordCount": "908"
   }]
   </script>
 
@@ -718,7 +720,7 @@
 <p>A questi servizi ho sempre effettuato l&rsquo;accesso tramite Cloudflare Tunnel e non mi sono mai trovato male nel suo utilizzo,
 però mi ha sempre dato fastidio il dover pubblicare al mondo esterno tutti i miei servizi e renderlo accessibile a chiunque.</p>
 <p>Quindi con il tempo ho cercato di valutare l&rsquo;idea di utilizzare una VPN per poter utilizzare solo io, e le persone a concedo l&rsquo;accesso, la possibilità di utilizzarli.
-Questa decisione viene con dei drawback, per esempio non poter condividere dei link i documenti all&rsquo;interno di paperless o non avere tutte le funzionalità
+Questa decisione viene con dei drawback, per esempio non poter condividere tramite dei link i documenti presenti in paperless o non avere tutte le funzionalità
 di “<strong>away from zone</strong>” di HomeAssistant, ma nulla che una soluzione ibrida non possa mitigare.</p>
 <p>Per dare un attimo di contesto sulla struttura del mio HomeLab, ho un <a
   href="https://www.amazon.it/dp/B0CXCT4M2F"
@@ -736,7 +738,7 @@ di svolgere funzioni di Reverse Proxy per servizi che volevo rendere disponibili
     </span>        
     
 </h2>
-<p>Informandomi su SubReddit e, in generale su Youtube (santo youtube), sono incappato in un diverse persone che utilizzano Tailscale,
+<p>Informandomi su SubReddit e, in generale su Youtube (santo youtube), sono incappato in diverse persone che utilizzano Tailscale,
 un provider VPN con un ottimo piano gratuito per hobbisti basato su WireGuard.
 A questo punto ho creato un account, collegato il mio pc e il telefono per la prima configurazione e
 ho iniziato a progettare quello che sarebbe necessario configurare da qua in poi.</p>
@@ -750,10 +752,10 @@ ho iniziato a progettare quello che sarebbe necessario configurare da qua in poi
     </span>        
     
 </h2>
-<p>Ho deciso di utilizzare un nuovo container LCX di Nginx Proxy Manager (<a
+<p>Ho deciso di utilizzare un nuovo container LCX di <a
   href="https://community-scripts.github.io/ProxmoxVE/scripts?id=nginxproxymanager"
     target="_blank"
-  >https://community-scripts.github.io/ProxmoxVE/scripts?id=nginxproxymanager</a>) per svolgere le funzioni di Reverse Proxy.
+  >Nginx Proxy Manager</a> per svolgere le funzioni di Reverse Proxy.
 Una volta terminata l&rsquo;installazione mi è bastato configurare il mio certificato SSL alla voce &ldquo;SSL Certificates&rdquo; utilizzando Cloudflare come provider.</p>
 
 <h3 class="relative group">Cloudflare 
