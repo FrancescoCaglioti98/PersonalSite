@@ -6,6 +6,8 @@ draft: false
 categories: ["homelab", "vpn", "tailscale"]
 showAuthorBottom: true
 showHero: true
+sitemap:
+  priority: 0.7
 ---
 ## HomeLab
 

@@ -5,6 +5,8 @@ description: "A Little More About Me"
 draft: false
 layout: "cv"
 categories: ["cv"]
+sitemap:
+  priority: 0.8
 showAuthorBottom: false
 showAuthor: false
 showDate: false
