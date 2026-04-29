@@ -1,0 +1,9 @@
+[[main]]
+  name = "CV"
+  pageRef = "cv.md"
+  weight = 1
+
+[[main]]
+  name = "Blog"
+  pageRef = "Article"
+  weight = 10

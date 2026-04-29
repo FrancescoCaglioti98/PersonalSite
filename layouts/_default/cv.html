@@ -23,12 +23,12 @@
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
       <div class="min-w-0 min-h-0 max-w-prose mb-20">
         {{ with .Content }}
-          <h2>About Me</h2>
+          <h2>{{ i18n "cv.about" }}</h2>
           {{ . }}
         {{ end }}
 
         {{ with .Params.experiences }}
-          <h2>Esperienze Lavorative</h2>
+          <h2>{{ i18n "cv.experiences" }}</h2>
           {{ range . }}
             <div class="cv-experience">
               <div class="cv-experience-header">
@@ -50,19 +50,19 @@
         {{ end }}
 
         {{ with .Params.skills }}
-          <h2>Competenze Tecniche</h2>
+          <h2>{{ i18n "cv.skills" }}</h2>
           <div class="cv-skills">
             {{ range . }}<span class="cv-skill">{{ . }}</span>{{ end }}
           </div>
         {{ end }}
 
         {{ with .Params.methodologies }}
-          <h2>Metodologie di lavoro</h2>
+          <h2>{{ i18n "cv.methodologies" }}</h2>
           <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
         {{ end }}
 
         {{ with .Params.projects }}
-          <h2>Progetti</h2>
+          <h2>{{ i18n "cv.projects" }}</h2>
           <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
         {{ end }}
       </div>

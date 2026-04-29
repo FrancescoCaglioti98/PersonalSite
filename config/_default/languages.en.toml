@@ -1,0 +1,30 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 2
+title = "Francesco Caglioti"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2, 2006"
+  logo = "img/hero_image.png"
+  description = "My Personal Website"
+  # secondaryLogo = "img/secondary-logo.png"
+  #copyright = "Copy, _right?_ :thinking_face:"
+
+[params.author]
+  name = "Francesco Caglioti"
+   email = "personal@fcaglioti.cc"
+   image = "https://avatars.githubusercontent.com/u/91256439?v=4"
+   imageQuality = 96
+   headline = "A passionate Web Developer specialized in backend solutions, with a preference for Laravel and PHP."
+   bio = "Hi, I'm Francesco"
+   links = [
+     { email = "mailto:personal@fcaglioti.cc" },
+     { dev = "https://dev.to/francescocaglioti" },
+     { github = "https://github.com/FrancescoCaglioti98" },
+     { linkedin = "https://linkedin.com/in/frcaglioti" },
+     { medium = "https://medium.com/@francesco.caglioti" },
+   ]
