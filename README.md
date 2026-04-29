@@ -1,7 +1,19 @@
-# Personal BLOG
+# Personal Blog
 
-This is the branch for my personal blog, still in development but with good will to finish it soon.
+Sito personale e blog, costruito con [Hugo](https://gohugo.io/) e il tema [Blowfish](https://blowfish.page/).
 
-I used the Blowfish theme for Hugo and I'm still learning how to use it.
+## Stack
 
-For the deploy script i adapted the script created by [NetworkChuck](https://www.youtube.com/watch?v=dnE7c0ELEH8&t=365s) and configured to my needs
+- **Hugo** (v0.161.0) con tema Blowfish (Tailwind CSS)
+- **Bilingue**: italiano (default) + inglese
+- **Analytics**: Umami
+- **Deploy**: GitHub Actions → branch `deploy` → Cloudflare Workers
+
+## Struttura contenuti
+
+- `content/Article/<Nome>/index.md` — versione italiana
+- `content/Article/<Nome>/index.en.md` — versione inglese
+
+## Deploy
+
+Il deploy è automatico: ogni push su `main` triggera la GitHub Action che builda il sito e fa force-push del contenuto di `public/` sul branch `deploy`. Cloudflare Workers riprende da lì e pubblica il sito.
