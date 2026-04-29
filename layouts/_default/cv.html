@@ -23,31 +23,37 @@
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
       <div class="min-w-0 min-h-0 max-w-prose mb-20">
         {{ with .Content }}
-          <h2>{{ i18n "cv.about" | default "About Me" }}</h2>
+          <h2>About Me</h2>
           {{ . }}
         {{ end }}
 
         {{ with .Params.experiences }}
           <h2>Esperienze Lavorative</h2>
           {{ range . }}
-            <h3>
-              {{ .role }}
-              {{- with .company }} <span class="text-neutral-500 dark:text-neutral-400">| {{ . }}</span>{{ end }}
-              {{- with .location }} <span class="text-neutral-500 dark:text-neutral-400">| {{ . }}</span>{{ end }}
-            </h3>
-            {{ with .period }}<p class="mt-0"><strong>Periodo:</strong> {{ . }}</p>{{ end }}
-            {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
-            {{ with .highlights }}
-              <ul>
-                {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
-              </ul>
-            {{ end }}
+            <div class="cv-experience">
+              <div class="cv-experience-header">
+                <h3 class="cv-experience-role">
+                  {{ .role }}
+                  {{- with .company }} <span class="cv-experience-meta">| {{ . }}</span>{{ end }}
+                  {{- with .location }} <span class="cv-experience-meta">| {{ . }}</span>{{ end }}
+                </h3>
+                {{ with .period }}<span class="cv-experience-period">{{ . }}</span>{{ end }}
+              </div>
+              {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+              {{ with .highlights }}
+                <ul>
+                  {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+                </ul>
+              {{ end }}
+            </div>
           {{ end }}
         {{ end }}
 
         {{ with .Params.skills }}
           <h2>Competenze Tecniche</h2>
-          <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+          <div class="cv-skills">
+            {{ range . }}<span class="cv-skill">{{ . }}</span>{{ end }}
+          </div>
         {{ end }}
 
         {{ with .Params.methodologies }}
