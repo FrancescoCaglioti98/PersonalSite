@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# DEPRECATED: deploy is now handled by .github/workflows/deploy.yml,
+# triggered automatically on every push to main. Keep this script as an
+# emergency fallback only. Remove once CI has been verified to work end-to-end.
+
 # Step 4: Build the Hugo site
 echo "Building the Hugo site..."
 if ! hugo; then
