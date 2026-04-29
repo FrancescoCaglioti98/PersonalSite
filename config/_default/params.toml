@@ -9,7 +9,7 @@ colorScheme = "Noir"
 defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = true
 
-enableA11y = false
+enableA11y = true
 enableSearch = true
 enableCodeCopy = false
 
@@ -145,11 +145,9 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   # domain = "llama.yoursite.com"
 
 [umamiAnalytics]
-  # websiteid = "ABC12345"
-  # domain = "llama.yoursite.com"
-  # dataDomains = "yoursite.com,yoursite2.com"
-  # scriptName = ""
-  # enableTrackEvent = true
+  websiteid = "487f74ab-411e-4af5-8ba1-2f68421b3040"
+  domain = "cloud.umami.is"
+  enableTrackEvent = true
 
 [selineAnalytics]
   # token = "XXXXXX"
