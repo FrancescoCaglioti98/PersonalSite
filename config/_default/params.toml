@@ -25,7 +25,7 @@ disableTextInHeader = false
 
 # defaultBackgroundImage = "IMAGE.jpg" # used as default for background images 
 # defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
-# defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
+defaultSocialImage = "img/hero_image.png" # used as default for social media sharing (Open Graph and Twitter)
 
 # highlightCurrentMenuArea = true
 # smartTOC = true
@@ -107,6 +107,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   cardViewScreenWidth = false
   constrainItemsWidth = false
 
+# Theme-specific sitemap filter (Site.Params.sitemap), distinct from the
+# top-level [sitemap] in hugo.toml (Hugo's built-in changefreq/priority).
 [sitemap]
   excludedKinds = ["taxonomy", "term"]
 
@@ -131,45 +133,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   cardView = false
   cardViewScreenWidth = false
 
-[firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
-
-[fathomAnalytics]
-  # site = "ABC12345"
-  # domain = "llama.yoursite.com"
-
 [umamiAnalytics]
   websiteid = "487f74ab-411e-4af5-8ba1-2f68421b3040"
   domain = "cloud.umami.is"
   enableTrackEvent = true
-
-[selineAnalytics]
-  # token = "XXXXXX"
-  # enableTrackEvent = true
-
-[buymeacoffee]
-  # identifier = ""
-  # globalWidget = true
-  # globalWidgetMessage = "Hello"
-  # globalWidgetColor = "#FFDD00"
-  # globalWidgetPosition = "Right"
-
-[verification]
-  # google = ""
-  # bing = ""
-  # pinterest = ""
-  # yandex = ""
-  # fediverse = ""
-
-[rssnext]
-  # feedId = ""
-  # userId = ""
-
-[advertisement]
-  # adsense = ""

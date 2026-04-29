@@ -4,7 +4,7 @@
 
 theme = "blowfish" # UNCOMMENT THIS LINE
 baseURL = "https://fcaglioti.cc/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "it"
 
 # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 pluralizeListTitles = "true"
@@ -20,7 +20,7 @@ enableEmoji = true
 # googleAnalytics = "G-XXXXXXXXX"
 
 [pagination]
-  pagerSize = 100
+  pagerSize = 20
 
 [imaging]
   anchor = 'Center'
@@ -28,7 +28,6 @@ enableEmoji = true
 [taxonomies]
   tag = "tags"
   category = "categories"
-  author = "authors"
   series = "series"
 
 [sitemap]
@@ -54,10 +53,6 @@ enableEmoji = true
     [[related.indices]]
         name = "series"
         weight = 50
-
-    [[related.indices]]
-        name = "authors"
-        weight = 20
 
     [[related.indices]]
         name = "date"

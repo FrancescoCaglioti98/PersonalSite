@@ -1,0 +1,7 @@
+.hugo_build.lock
+.DS_Store
+resources/_gen/
+node_modules/
+
+# NOTE: public/ stays tracked because deploy.sh runs `git subtree split --prefix public`
+# to push it to the `deploy` branch. Migrating to GitHub Actions would let us ignore it.

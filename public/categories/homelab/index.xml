@@ -5,7 +5,7 @@
     <link>https://fcaglioti.cc/categories/homelab/</link>
     <description>Recent content in Homelab on Francesco Caglioti</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>it</language>
     <managingEditor>personal@fcaglioti.cc (Francesco Caglioti)</managingEditor>
     <webMaster>personal@fcaglioti.cc (Francesco Caglioti)</webMaster>
     
@@ -18,7 +18,7 @@
       <author>personal@fcaglioti.cc (Francesco Caglioti)</author>
       <guid>https://fcaglioti.cc/article/tailscale/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://fcaglioti.cc/article/tailscale/feature-homelab-tailscale.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://fcaglioti.cc/article/tailscale/featured-homelab-tailscale.png" />
     </item>
     
   </channel>

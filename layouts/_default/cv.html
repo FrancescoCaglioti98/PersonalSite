@@ -1,0 +1,65 @@
+{{ define "main" }}
+  <article>
+    {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
+      {{ $heroStyle := .Params.heroStyle }}
+      {{ if not $heroStyle }}{{ $heroStyle = site.Params.article.heroStyle }}{{ end }}
+      {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+      {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+        {{ partial $heroStyle . }}
+      {{ else }}
+        {{ partial "hero/basic.html" . }}
+      {{ end }}
+    {{ end }}
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+      {{ with .Params.description }}
+        <p class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
+      <div class="min-w-0 min-h-0 max-w-prose mb-20">
+        {{ with .Content }}
+          <h2>{{ i18n "cv.about" | default "About Me" }}</h2>
+          {{ . }}
+        {{ end }}
+
+        {{ with .Params.experiences }}
+          <h2>Esperienze Lavorative</h2>
+          {{ range . }}
+            <h3>
+              {{ .role }}
+              {{- with .company }} <span class="text-neutral-500 dark:text-neutral-400">| {{ . }}</span>{{ end }}
+              {{- with .location }} <span class="text-neutral-500 dark:text-neutral-400">| {{ . }}</span>{{ end }}
+            </h3>
+            {{ with .period }}<p class="mt-0"><strong>Periodo:</strong> {{ . }}</p>{{ end }}
+            {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+            {{ with .highlights }}
+              <ul>
+                {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        {{ with .Params.skills }}
+          <h2>Competenze Tecniche</h2>
+          <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+        {{ end }}
+
+        {{ with .Params.methodologies }}
+          <h2>Metodologie di lavoro</h2>
+          <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+        {{ end }}
+
+        {{ with .Params.projects }}
+          <h2>Progetti</h2>
+          <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+        {{ end }}
+      </div>
+    </section>
+  </article>
+{{ end }}

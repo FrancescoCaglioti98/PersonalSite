@@ -1,16 +1,16 @@
 disabled = false
-locale = "en"
-label = "English"
+locale = "it"
+label = "Italiano"
 weight = 1
 title = "Francesco Caglioti"
 
 [params]
-  displayName = "EN"
-  isoCode = "en"
+  displayName = "IT"
+  isoCode = "it"
   rtl = false
-  dateFormat = "2 January 2006"
+  dateFormat = "2 gennaio 2006"
   logo = "img/hero_image.png"
-  description = "My Personal Website"
+  description = "Il mio sito personale"
   # secondaryLogo = "img/secondary-logo.png"
   #copyright = "Copy, _right?_ :thinking_face:"
 
