@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    {{ with .Site.Language.Params.htmlCode | default .Site.LanguageCode }}
+    {{ with .Site.Language.Params.htmlCode | default .Site.Language.Locale }}
     <meta http-equiv="content-language" content="{{ . }}">
     {{ end }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,25 +38,21 @@
     {{ end -}}
 
     {{/* Asset bundles */}}
-    {{ $assets := newScratch }}
+    {{ $alg := .Site.Params.fingerprintAlgorithm | default "sha512" }}
+    {{ $cssResources := slice }}
     {{ $cssScheme := resources.Get (printf "css/schemes/%s.css" (.Site.Params.colorScheme | default "blowfish")) }}
     {{ if not $cssScheme }}
     {{ $cssScheme = resources.Get "css/schemes/blowfish.css" }}
     {{ end }}
-    {{ $assets.Add "css" (slice $cssScheme) }}
-    {{ $cssMain := resources.Get "css/compiled/main.css" }}
-    {{ $assets.Add "css" (slice $cssMain) }}
-    {{ $cssCustom := resources.Get "css/custom.css" }}
-    {{ if $cssCustom }}
-    {{ $assets.Add "css" (slice $cssCustom) }}
+    {{ $cssResources = $cssResources | append $cssScheme }}
+    {{ $cssResources = $cssResources | append (resources.Get "css/compiled/main.css") }}
+    {{ with resources.Get "css/custom.css" }}
+    {{ $cssResources = $cssResources | append . }}
     {{ end }}
     {{ if not .Site.Params.disableImageZoom | default true }}
-    {{ $cssZoom := resources.Get "lib/zoom/style.css" }}
-    {{ $assets.Add "css" (slice $cssZoom) }}
+    {{ $cssResources = $cssResources | append (resources.Get "lib/zoom/style.css") }}
     {{ end }}
-    {{ $bundleCSS := $assets.Get "css" | resources.Concat "css/main.bundle.css" | resources.Minify | resources.Fingerprint
-    (.Site.Params.fingerprintAlgorithm | default "sha512")
-    }}
+    {{ $bundleCSS := $cssResources | resources.Concat "css/main.bundle.css" | resources.Minify | resources.Fingerprint $alg }}
     <link
             type="text/css"
             rel="stylesheet"
@@ -83,29 +79,27 @@
             src="{{ $jsZenMode.RelPermalink }}"
             integrity="{{ $jsZenMode.Data.Integrity }}"></script>
     {{ end }}
+    {{ $jsResources := slice }}
     {{ if .Site.Params.enableSearch | default false }}
-    {{ $jsFuse := resources.Get "lib/fuse/fuse.min.js" }}
-    {{ $jsSearch := resources.Get "js/search.js" }}
-    {{ $assets.Add "js" (slice $jsFuse $jsSearch) }}
+    {{ $jsResources = $jsResources | append (resources.Get "lib/fuse/fuse.min.js") | append (resources.Get "js/search.js") }}
     {{ end }}
     {{ if .Site.Params.enableCodeCopy | default false }}
-    {{ $jsCode := resources.Get "js/code.js" }}
-    {{ $assets.Add "js" (slice $jsCode) }}
+    {{ $jsResources = $jsResources | append (resources.Get "js/code.js") }}
     {{ end }}
     {{ if .Site.Params.rtl | default false }}
-    {{ $jsRTL := resources.Get "js/rtl.js" }}
-    {{ $assets.Add "js" (slice $jsRTL) }}
+    {{ $jsResources = $jsResources | append (resources.Get "js/rtl.js") }}
     {{ end }}
-    {{ $jsMobileMenu := resources.Get "js/mobilemenu.js" }}
-    {{ $assets.Add "js" (slice $jsMobileMenu) }}
-    {{ $buttonLikes := resources.Get "js/button-likes.js" }}
-    {{ $assets.Add "js" (slice $buttonLikes) }}
-    {{ $katexRender := resources.Get "js/katex-render.js" }}
-    {{ $assets.Add "js" (slice $katexRender) }}
-    {{ if $assets.Get "js" }}
-    {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint
-    (.Site.Params.fingerprintAlgorithm | default "sha512")
-    }}
+    {{ with resources.Get "js/mobilemenu.js" }}
+    {{ $jsResources = $jsResources | append . }}
+    {{ end }}
+    {{ with resources.Get "js/button-likes.js" }}
+    {{ $jsResources = $jsResources | append . }}
+    {{ end }}
+    {{ with resources.Get "js/katex-render.js" }}
+    {{ $jsResources = $jsResources | append . }}
+    {{ end }}
+    {{ if $jsResources }}
+    {{ $bundleJS := $jsResources | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint $alg }}
     <script
             defer
             type="text/javascript"
@@ -192,7 +186,7 @@
     {{ partial "vendor.html" . }}
 
     {{/* Analytics */}}
-    {{ partial "analytics/main.html" .Site }}
+    {{ partial "analytics/main.html" . }}
 
     {{/* Extend head - eg. for custom analytics scripts, etc. */}}
     {{ if templates.Exists "partials/extend-head.html" }}
