@@ -1,0 +1,96 @@
+---
+draft: true
+title: "Francesco Caglioti"
+description: "Backend Engineer specializzato in PHP, Laravel e Symfony. Appassionato di HomeLab, self-hosting e tecnologie open source."
+keywords: ["Francesco Caglioti", "Backend Engineer", "PHP Developer", "Laravel", "Symfony", "HomeLab", "Italia"]
+sitemap:
+  priority: 1.0
+  changefreq: weekly
+
+---
+
+## 👋 Ciao, sono Francesco!
+
+Backend Engineer con base a Milano, specializzato nello sviluppo di applicazioni web robuste e scalabili.
+
+### Cosa faccio
+
+<div class="p-6 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 my-6 shadow-md">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="text-center p-4">
+      <div class="text-3xl mb-2">🚀</div>
+      <h4 class="font-bold mb-1">API RESTful</h4>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">Symfony + ApiPlatform</p>
+    </div>
+    <div class="text-center p-4">
+      <div class="text-3xl mb-2">🐘</div>
+      <h4 class="font-bold mb-1">PHP Development</h4>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">PHP, Laravel, Symfony</p>
+    </div>
+    <div class="text-center p-4">
+      <div class="text-3xl mb-2">🐳</div>
+      <h4 class="font-bold mb-1">DevOps</h4>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">Docker + Kubernetes</p>
+    </div>
+    <div class="text-center p-4">
+      <div class="text-3xl mb-2">🏠</div>
+      <h4 class="font-bold mb-1">HomeLab</h4>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">Self-hosted services</p>
+    </div>
+    <div class="text-center p-4">
+      <div class="text-3xl mb-2">📝</div>
+      <h4 class="font-bold mb-1">Code Quality</h4>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">Tested & maintainable</p>
+    </div>
+  </div>
+</div>
+
+### Oltre il lavoro
+
+<div class="p-6 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 my-6 shadow-md">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="text-center p-3">
+      <div class="text-3xl mb-2">🔧</div>
+      <h4 class="font-bold mb-1">HomeLab</h4>
+      <p class="text-xs text-neutral-600 dark:text-neutral-400">Proxmox, HA, Paperless</p>
+    </div>
+    <div class="text-center p-3">
+      <div class="text-3xl mb-2">🔍</div>
+      <h4 class="font-bold mb-1">Self-Hosting</h4>
+      <p class="text-xs text-neutral-600 dark:text-neutral-400">Nuove tecnologie</p>
+    </div>
+    <div class="text-center p-3">
+      <div class="text-3xl mb-2">📚</div>
+      <h4 class="font-bold mb-1">Learning</h4>
+      <p class="text-xs text-neutral-600 dark:text-neutral-400">YouTube & docs</p>
+    </div>
+    <div class="text-center p-3">
+      <div class="text-3xl mb-2">🏔️</div>
+      <h4 class="font-bold mb-1">Montagna</h4>
+      <p class="text-xs text-neutral-600 dark:text-neutral-400">Decompressione</p>
+    </div>
+  </div>
+</div>
+
+### Attualmente
+
+<div class="p-6 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 my-6 shadow-md">
+  <div class="flex flex-col gap-6">
+    <div class="text-center">
+      <div class="text-sm font-bold text-primary-700 dark:text-primary-300 mb-2">RUOLO</div>
+      <p class="text-neutral-800 dark:text-neutral-200">Backend Engineer @ Iliad Italia</p>
+    </div>
+    <div class="text-center">
+      <div class="text-sm font-bold text-primary-700 dark:text-primary-300 mb-2">STACK</div>
+      <p class="text-neutral-800 dark:text-neutral-200">PHP, Symfony, Docker, K8s, MySQL</p>
+    </div>
+    <div class="text-center">
+      <div class="text-sm font-bold text-primary-700 dark:text-primary-300 mb-2">STATUS</div>
+      <p class="text-neutral-800 dark:text-neutral-200">✅ Disponibile per nuove opportunità</p>
+    </div>
+  </div>
+</div>
+
+---
+
+Dai un'occhiata al mio [CV](/cv/) per i dettagli, o leggi gli ultimi [articoli](/Article/).

@@ -8,6 +8,9 @@ showAuthorBottom: true
 showHero: true
 sitemap:
   priority: 0.7
+tags: ["tailscale", "vpn", "homelab", "nginx", "proxmox", "cloudflare"]
+keywords: ["tailscale", "VPN", "home lab", "self-hosting", "nginx proxy manager", "proxmox", "wireguard"]
+socialImage: "img/tailscale-social.png"
 ---
 ## HomeLab
 

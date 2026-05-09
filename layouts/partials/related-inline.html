@@ -1,0 +1,49 @@
+{{/* 
+  Inline related articles partial
+  Use this within article content to show related articles
+  Usage: {{ partial "related-inline.html" . }}
+*/}}
+
+{{ $currentCategories := .Params.categories }}
+{{ $currentTags := .Params.tags }}
+{{ $related := slice }}
+
+{{/* Get pages with same categories */}}
+{{ if $currentCategories }}
+  {{ $categoryPages := where .Site.RegularPages "Params.categories" "intersect" $currentCategories }}
+  {{ $categoryPages = where $categoryPages "Permalink" "ne" .Permalink }}
+  {{ $related = $categoryPages | first 3 }}
+{{ end }}
+
+{{/* If not enough, get from tags */}}
+{{ if and (lt (len $related) 2) $currentTags }}
+  {{ $tagPages := where .Site.RegularPages "Params.tags" "intersect" $currentTags }}
+  {{ $tagPages = where $tagPages "Permalink" "ne" .Permalink }}
+  {{ $related = $tagPages | first (sub 3 (len $related)) }}
+{{ end }}
+
+{{/* Display if we have related articles */}}
+{{ with $related }}
+  <div class="my-8 p-6 rounded-lg bg-neutral-100 dark:bg-neutral-800 border-l-4 border-primary-500">
+    <h3 class="text-xl font-bold mb-4 text-neutral-900 dark:text-neutral-100">
+      📚 Potrebbe interessarti anche
+    </h3>
+    <ul class="space-y-2">
+      {{ range . }}
+        <li>
+          <a 
+            href="{{ .RelPermalink }}" 
+            class="text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300 font-medium"
+          >
+            → {{ .Title }}
+          </a>
+          {{ with .Params.description }}
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+              {{ . | truncate 100 }}
+            </p>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

@@ -1,7 +1,7 @@
 ---
 title: "Francesco Caglioti"
 date: 2025-09-27
-description: "A Little More About Me"
+description: "Qualcosa riguardante me"
 draft: false
 layout: "cv"
 categories: ["cv"]

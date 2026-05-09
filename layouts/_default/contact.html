@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <article class="max-w-3xl mx-auto">
+    <header class="mt-5 max-w-prose mx-auto">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral text-center">
+        {{ .Title | emojify }}
+      </h1>
+      {{ with .Params.description }}
+        <p class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 text-center">
+          {{ . }}
+        </p>
+      {{ end }}
+    </header>
+
+    <section class="flex flex-col mt-8 prose dark:prose-invert max-w-none">
+      <div class="min-w-0 min-h-0">
+        {{ .Content }}
+      </div>
+    </section>
+  </article>
+{{ end }}

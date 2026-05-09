@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <article>
+    {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
+      {{ $heroStyle := .Params.heroStyle }}
+      {{ if not $heroStyle }}{{ $heroStyle = site.Params.article.heroStyle }}{{ end }}
+      {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+      {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+        {{ partial $heroStyle . }}
+      {{ else }}
+        {{ partial "hero/basic.html" . }}
+      {{ end }}
+    {{ end }}
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+      {{ with .Params.description }}
+        <p class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
+      <div class="min-w-0 min-h-0 max-w-prose mb-20">
+        {{ .Content }}
+      </div>
+    </section>
+  </article>
+{{ end }}

@@ -4,6 +4,9 @@ date: 2025-09-24
 description: "Accedo alla mia rete domestica da qualsiasi luogo"
 draft: false
 categories: ["homelab", "vpn", "tailscale"]
+tags: ["tailscale", "vpn", "homelab", "nginx", "proxmox", "cloudflare"]
+keywords: ["tailscale", "VPN", "home lab", "self-hosting", "nginx proxy manager", "proxmox", "wireguard"]
+socialImage: "img/tailscale-social.png"
 showAuthorBottom: true
 showHero: true
 sitemap:

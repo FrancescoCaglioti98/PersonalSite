@@ -1,0 +1,15 @@
+{{ $jsHome := resources.Get "js/home.js" | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+<div id="hero">
+  {{ partial "home/hero.html" . }}
+</div>
+<!--
+<section class="max-w-7xl mx-auto px-4">
+  {{ partial "aboutme.html" . }}
+</section>
+-->
+<script
+  defer
+  type="text/javascript"
+  src="{{ $jsHome.RelPermalink }}"
+  integrity="{{ $jsHome.Data.Integrity }}"></script>
+

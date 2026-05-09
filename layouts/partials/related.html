@@ -1,0 +1,35 @@
+{{/* Enhanced related articles with category/tag fallback */}}
+{{ $related := slice }}
+
+{{/* First try related content from Hugo */}}
+{{ $related = .Site.RegularPages.Related . | first (.Site.Params.article.relatedContentLimit | default 3) }}
+
+{{/* If not enough related, get from same category/tags */}}
+{{ if lt (len $related) 2 }}
+  {{ $currentCategories := .Params.categories }}
+  {{ $currentTags := .Params.tags }}
+  
+  {{/* Get pages with same categories */}}
+  {{ if $currentCategories }}
+    {{ $categoryPages := where .Site.RegularPages "Params.categories" "intersect" $currentCategories }}
+    {{ $categoryPages = where $categoryPages "Permalink" "ne" .Permalink }}
+    {{ $related = $categoryPages | first 3 }}
+  {{ end }}
+  
+  {{/* If still not enough, get from same tags */}}
+  {{ if and (lt (len $related) 2) $currentTags }}
+    {{ $tagPages := where .Site.RegularPages "Params.tags" "intersect" $currentTags }}
+    {{ $tagPages = where $tagPages "Permalink" "ne" .Permalink }}
+    {{ $related = $tagPages | first 3 }}
+  {{ end }}
+{{ end }}
+
+{{/* Display related articles if any */}}
+{{ with $related }}
+  <h2 class="mt-8 text-2xl font-extrabold mb-6">{{ i18n "article.related_articles" | default "Articoli Correlati" | emojify }}</h2>
+  <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+    {{ range . }}
+      {{ partial "article-link/card-related.html" . }}
+    {{ end }}
+  </section>
+{{ end }}

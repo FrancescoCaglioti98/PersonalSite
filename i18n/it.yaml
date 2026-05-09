@@ -4,3 +4,32 @@ cv:
   skills: "Competenze Tecniche"
   methodologies: "Metodologie di lavoro"
   projects: "Progetti"
+
+homepage:
+  whatIDo: "Cosa faccio"
+  whatIDoIntro: "Backend Engineer con base a Milano, costruisco API e sistemi distribuiti."
+  
+  skills:
+    php: "Backend Development"
+    phpDesc: "Laravel, Symfony, Docker"
+    database: "Database"
+    databaseDesc: "MySQL, PostgreSQL"
+    testing: "Testing"
+    testingDesc: "PHPUnit, Integration tests"
+  
+  outsideWork: "Oltre il lavoro"
+  outsideWorkIntro: "Quando non scrivo codice, gestisco il mio homelab e passo il tempo in montagna."
+  
+  hobbies:
+    homelab: "Homelab"
+    homelabDesc: "Proxmox, HA, Paperless"
+    selfhosting: "Self-Hosting"
+    selfhostingDesc: "Docker, N8N"
+    mountains: "Montagna"
+    mountainsDesc: "Trekking, Campeggio"
+  
+  currently: "Attualmente"
+  role: "Ruolo"
+  roleValue: "Backend Engineer @ Iliad Italia"
+  stack: "Stack"
+  stackValue: "PHP, Symfony, Laravel, Docker, MySQL"

@@ -1,9 +1,33 @@
 [[main]]
-  name = "CV"
+  name = "About"
   pageRef = "cv.md"
   weight = 1
+
+[[main]]
+  name = "Projects"
+  pageRef = "projects.md"
+  weight = 5
 
 [[main]]
   name = "Blog"
   pageRef = "Article"
   weight = 10
+
+
+[[main]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/FrancescoCaglioti98"
+  weight = 400
+
+[[main]]
+  identifier = "linkedin"
+  pre = "linkedin"
+  url = "https://linkedin.com/in/frcaglioti"
+  weight = 500
+
+[[main]]
+  identifier = "email"
+  pre = "email"
+  url = "mailto:personal@fcaglioti.cc"
+  weight = 600
