@@ -65,34 +65,4 @@ enableGitInfo = true
       type = 'fragments'
       weight = 10
 
-# Exclude AGENTS.md files from processing
-[module]
-  [[module.mounts]]
-    source = 'content'
-    target = 'content'
-    files = ['!**/AGENTS.md']
 
-  [[module.mounts]]
-    source = 'layouts'
-    target = 'layouts'
-    files = ['!**/AGENTS.md']
-
-  [[module.mounts]]
-    source = 'static'
-    target = 'static'
-
-  [[module.mounts]]
-    source = 'assets'
-    target = 'assets'
-
-  [[module.mounts]]
-    source = 'data'
-    target = 'data'
-
-  [[module.mounts]]
-    source = 'i18n'
-    target = 'i18n'
-
-  [[module.mounts]]
-    source = 'archetypes'
-    target = 'archetypes'
