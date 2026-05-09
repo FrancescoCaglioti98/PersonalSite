@@ -9,6 +9,16 @@ cv:
   role: "Ruolo"
   stack: "Stack"
 
+projects:
+  status:
+    active: "Attivo"
+    wip: "In sviluppo"
+    completed: "Completato"
+  roleLabel: "Ruolo"
+  resultsTitle: "Risultati"
+  linkText: "Scopri di più"
+  calendlyText: "Prenota una call"
+
 homepage:
   whatIDo: "Cosa faccio"
   whatIDoIntro: "Backend Engineer con base a Milano, costruisco API e sistemi distribuiti."

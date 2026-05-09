@@ -24,6 +24,69 @@
       <div class="min-w-0 min-h-0 max-w-prose mb-20">
         {{ .Content }}
       </div>
+
+      {{ with .Params.projects }}
+        <div class="projects-grid">
+          {{ range . }}
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-section">
+                  <h3 class="project-card-title">{{ .name }}</h3>
+                  {{ with .status }}
+                    <span class="project-status project-status-{{ . }}">
+                      {{ i18n (printf "projects.status.%s" .) }}
+                    </span>
+                  {{ end }}
+                </div>
+                {{ with .period }}<span class="project-period">{{ . }}</span>{{ end }}
+              </div>
+
+              <p class="project-card-description">{{ .description }}</p>
+
+              {{ with .role }}
+                <div class="project-role">
+                  <span class="project-role-label">{{ i18n "projects.roleLabel" }}</span>
+                  <span class="project-role-value">{{ . }}</span>
+                </div>
+              {{ end }}
+
+              {{ if .tech }}
+                <div class="project-tech-stack">
+                  {{ range .tech }}
+                    <span class="project-tech-badge">{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+
+              {{ with .highlights }}
+                <div class="project-highlights">
+                  <ul>
+                    {{ range . }}<li>{{ . }}</li>{{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              {{ with .results }}
+                <div class="project-results">
+                  <div class="project-results-title">{{ i18n "projects.resultsTitle" }}</div>
+                  <ul>
+                    {{ range . }}<li>{{ . }}</li>{{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              {{ if .link }}
+                <div class="project-card-footer">
+                  <a href="{{ .link }}" class="project-link"{{ if not (hasPrefix .link "/") }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                    {{ .linkText | default (i18n "projects.linkText") }}
+                    <span class="project-link-icon">→</span>
+                  </a>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
     </section>
   </article>
 {{ end }}

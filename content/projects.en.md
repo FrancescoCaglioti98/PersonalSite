@@ -6,82 +6,63 @@ draft: false
 layout: "projects"
 sitemap:
   priority: 0.8
+
+projects:
+  - name: "HomeLab"
+    description: "My home laboratory where I experiment with self-hosting, automation, and personal services."
+    period: "2024 - present"
+    role: "Maintainer"
+    status: "active"
+    tech: ["Proxmox", "Docker", "Tailscale", "Nginx Proxy Manager", "HomeAssistant"]
+    link: "/Article/Tailscale/"
+    linkText: "See technical details"
+    highlights:
+      - "HomeAssistant for home automation"
+      - "Paperless for document management"
+      - "Trilium Notes for knowledge base"
+      - "Vikunja for task management"
+
+  - name: "Personal Website"
+    description: "My personal website and blog, a continuous work-in-progress where I experiment with new features."
+    period: "2025 - present"
+    role: "Full Stack Developer"
+    status: "active"
+    tech: ["Hugo", "Blowfish Theme", "Tailwind CSS", "Cloudflare Workers"]
+    link: "https://github.com/FrancescoCaglioti98/PersonalSite"
+    linkText: "Contribute on GitHub"
+    highlights:
+      - "Bilingual (Italian/English)"
+      - "Automatic dark mode"
+      - "Analytics with Umami"
+      - "Automated deploy via GitHub Actions"
+
+  - name: "Custom CRM"
+    description: "Custom CRM system to optimize warehouse management and simplify transport logistics."
+    period: "2026 - present"
+    role: "Backend Developer"
+    status: "wip"
+    tech: ["PHP", "MySQL", "Docker"]
+    highlights:
+      - "Real-time warehouse management"
+      - "Delivery route optimization"
+      - "Integration with existing systems"
+      - "Advanced reporting"
+
+  - name: "Office365 Graph API Integration"
+    description: "Integration of Office365 Graph APIs for email and calendar management in a business ERP."
+    period: "2023"
+    role: "Backend Developer"
+    status: "completed"
+    tech: ["PHP", "Microsoft Graph API", "OAuth2"]
+    highlights:
+      - "Email sending via Outlook"
+      - "Calendar event synchronization"
+      - "Contact management"
+      - "Real-time notifications"
+    results:
+      - "Unified communication"
+      - "Reduced app switching"
+      - "Better traceability"
 ---
 
-## 🏠 HomeLab
-
-My home laboratory where I experiment with self-hosting, automation, and personal services.
-
-**Tech Stack:** Proxmox, Docker, Tailscale, Nginx Proxy Manager, HomeAssistant
-
-**Main Services:**
-- HomeAssistant for home automation
-- Paperless for document management
-- Trilium Notes for knowledge base
-- Vikunja for task management
-
-[→ See technical details in Tailscale article](/Article/Tailscale/)
-
----
-
-## 🌐 This Personal Website
-
-My personal website and blog, a continuous work-in-progress where I experiment with new features and improvements.
-
-**Tech Stack:** Hugo, Blowfish Theme, Tailwind CSS, Cloudflare Workers
-
-**Features:**
-- Bilingual (Italian/English)
-- Automatic dark mode
-- Analytics with Umami
-- Automated deploy via GitHub Actions
-
-**What I'm adding:**
-- Uses page (this!)
-- Projects section
-- SEO improvements
-- Cross-linking between articles
-
-[→ Contribute on GitHub](https://github.com/FrancescoCaglioti98/PersonalSite)
-
----
-
-## 📊 Custom CRM (WIP)
-
-Custom CRM system to optimize warehouse management and simplify transport logistics.
-
-**Tech Stack:** PHP, MySQL, Docker
-
-**Features:**
-- Real-time warehouse management
-- Delivery route optimization
-- Integration with existing systems
-- Advanced reporting
-
-**Status:** In development
-
----
-
-## 🔗 Office365 Graph API Integration
-
-Integration of Office365 Graph APIs for email and calendar management in a business ERP.
-
-**Tech Stack:** PHP, Microsoft Graph API, OAuth2
-
-**Features:**
-- Email sending via Outlook
-- Calendar event synchronization
-- Contact management
-- Real-time notifications
-
-**Results:**
-- Unified communication
-- Reduced app switching
-- Better traceability
-
----
-
-## 💡 Have a project in mind?
-Contact Me!
-
-I'm always interested in discussing new ideas, collaborations, or interesting technical challenges.
+I'm always interested in discussing new ideas, collaborations, or interesting technical challenges. If you have a project in mind, feel free to contact me.
