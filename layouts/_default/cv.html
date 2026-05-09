@@ -65,6 +65,24 @@
           <h2>{{ i18n "cv.projects" }}</h2>
           <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
         {{ end }}
+
+        {{ with .Params.current }}
+          <h2>{{ i18n "cv.currently" }}</h2>
+          <div class="cv-current">
+            {{ with .role }}
+              <div class="cv-current-item">
+                <span class="cv-current-label">{{ i18n "cv.role" }}</span>
+                <span class="cv-current-value">{{ . }}</span>
+              </div>
+            {{ end }}
+            {{ with .stack }}
+              <div class="cv-current-item">
+                <span class="cv-current-label">{{ i18n "cv.stack" }}</span>
+                <span class="cv-current-value">{{ . }}</span>
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
       </div>
     </section>
   </article>

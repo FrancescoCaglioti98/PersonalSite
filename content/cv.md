@@ -1,7 +1,7 @@
 ---
 title: "Francesco Caglioti"
 date: 2025-09-27
-description: "Qualcosa riguardante me"
+description: "Backend Engineer specializzato in PHP, Laravel e Symfony. Appassionato di HomeLab, self-hosting e tecnologie open source."
 draft: false
 layout: "cv"
 categories: ["cv"]
@@ -68,10 +68,32 @@ projects:
   - "Sviluppo di un sistema **CRM** su misura per ottimizzare la gestione del magazzino e semplificare la logistica di trasporto verso le sedi dei clienti. (WIP)"
   - "Questo sito, un costante WIP in quanto cerco di migliorarlo e completarlo con tante piccole funzionalità"
   - "**HomeLab**, ho creato un mio HomeLab dove ho inserito diversi piccoli servizi per rendermi la vita più facile"
+
+interests:
+  - name: "Homelab"
+    description: "Proxmox, Home Assistant, Paperless e servizi self-hosted"
+  - name: "Self-Hosting"
+    description: "Docker, automazioni e nuove tecnologie"
+  - name: "Montagna"
+    description: "Trekking e sci per decomprimere"
+  - name: "Learning"
+    description: "Nuove tecnologie, documentazione e miglioramento continuo"
+
+current:
+  role: "Backend Engineer @ Iliad Italia"
+  stack: "PHP, Symfony, Docker, K8s, MySQL"
 ---
 
-Ciao!
-Sono un appassionato sviluppatore web specializzato in soluzioni backend, con una predilezione per Laravel e PHP. \
-Mi dedico con entusiasmo a ogni fase del progetto, dalla pianificazione iniziale alla consegna finale, garantendo risultati di alta qualità.\
-Sempre alla ricerca di nuove sfide professionali, sono desideroso di contribuire a progetti innovativi e di crescere in un ambiente dinamico
-e stimolante.
+## Ciao, sono Francesco
+
+Backend Engineer con base a Milano, costruisco API e sistemi distribuiti per Iliad Italia.
+
+**Cosa faccio tutto il giorno:**
+- API RESTful con **Symfony** e **ApiPlatform**
+- Containerizzazione e orchestrazione con **Docker** e **Kubernetes**
+- Performance tuning e code quality
+
+**Oltre il codice:**
+Gestisco un homelab con Proxmox, self-hosto tutto ciò che posso e cerco di passare più tempo possibile in montagna quando lo schermo diventa troppo grande.
+
+---

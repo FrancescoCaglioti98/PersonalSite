@@ -4,6 +4,10 @@ cv:
   skills: "Competenze Tecniche"
   methodologies: "Metodologie di lavoro"
   projects: "Progetti"
+  interests: "Oltre il lavoro"
+  currently: "Attualmente"
+  role: "Ruolo"
+  stack: "Stack"
 
 homepage:
   whatIDo: "Cosa faccio"
