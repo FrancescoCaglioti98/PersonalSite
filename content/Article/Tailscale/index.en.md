@@ -1,17 +1,24 @@
 ---
-title: "Tailscale VPN"
+title: "Tailscale VPN: Complete HomeLab Setup Guide"
 date: 2025-09-24
-description: "Accessing my home network from anywhere"
+description: "Set up Tailscale VPN to securely access your HomeLab services from anywhere. Step-by-step guide with Proxmox, Nginx Proxy Manager, and Cloudflare."
 draft: false
 categories: ["homelab", "vpn", "tailscale"]
+tags: ["tailscale", "vpn", "homelab", "nginx", "proxmox", "cloudflare", "wireguard", "self-hosting"]
+keywords: ["tailscale", "VPN", "home lab", "self-hosting", "nginx proxy manager", "proxmox", "wireguard", "subnet routing", "exit node", "cloudflare tunnel"]
+socialImage: "img/tailscale-social.png"
 showAuthorBottom: true
 showHero: true
 sitemap:
   priority: 0.7
-tags: ["tailscale", "vpn", "homelab", "nginx", "proxmox", "cloudflare"]
-keywords: ["tailscale", "VPN", "home lab", "self-hosting", "nginx proxy manager", "proxmox", "wireguard"]
-socialImage: "img/tailscale-social.png"
+  changefreq: monthly
 ---
+If you run a self-hosted HomeLab, you know the dilemma: expose everything to the internet with Cloudflare Tunnel or stay isolated on your local network?
+
+It took me some months of trial and error to figure out how to balance security and accessibility. The solution? Tailscale VPN.
+
+In this guide, I'll show you exactly how I configured Tailscale on my Proxmox HomeLab to securely access all my services remotely, without exposing them publicly.
+
 ## HomeLab
 
 I run a HomeLab with very basic functionality, for example:
