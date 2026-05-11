@@ -23,9 +23,28 @@
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
       <div class="min-w-0 min-h-0 max-w-prose mb-20">
         {{ with .Content }}
-          <h2>{{ i18n "cv.about" }}</h2>
           {{ . }}
         {{ end }}
+
+        {{ with .Params.current }}
+          <h2>{{ i18n "cv.currently" }}</h2>
+          <div class="cv-current">
+            {{ with .role }}
+              <div class="cv-current-item">
+                <span class="cv-current-label">{{ i18n "cv.role" }}</span>
+                <span class="cv-current-value">{{ . }}</span>
+              </div>
+            {{ end }}
+            {{ with .stack }}
+              <div class="cv-current-item">
+                <span class="cv-current-label">{{ i18n "cv.stack" }}</span>
+                <span class="cv-current-value">{{ . }}</span>
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        <hr>
 
         {{ with .Params.experiences }}
           <h2>{{ i18n "cv.experiences" }}</h2>
@@ -49,6 +68,8 @@
           {{ end }}
         {{ end }}
 
+        <hr>
+
         {{ with .Params.skills }}
           <h2>{{ i18n "cv.skills" }}</h2>
           <div class="cv-skills">
@@ -60,29 +81,15 @@
           <h2>{{ i18n "cv.methodologies" }}</h2>
           <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
         {{ end }}
-
+        
+        <hr>
+        
         {{ with .Params.projects }}
           <h2>{{ i18n "cv.projects" }}</h2>
           <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
         {{ end }}
 
-        {{ with .Params.current }}
-          <h2>{{ i18n "cv.currently" }}</h2>
-          <div class="cv-current">
-            {{ with .role }}
-              <div class="cv-current-item">
-                <span class="cv-current-label">{{ i18n "cv.role" }}</span>
-                <span class="cv-current-value">{{ . }}</span>
-              </div>
-            {{ end }}
-            {{ with .stack }}
-              <div class="cv-current-item">
-                <span class="cv-current-label">{{ i18n "cv.stack" }}</span>
-                <span class="cv-current-value">{{ . }}</span>
-              </div>
-            {{ end }}
-          </div>
-        {{ end }}
+        
       </div>
     </section>
   </article>

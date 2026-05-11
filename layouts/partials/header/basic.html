@@ -1,0 +1,133 @@
+<div class="main-menu flex items-center w-full gap-2 py-4">
+  {{/* SINISTRA: Solo nome sito, niente immagine */}}
+  {{ if not .Site.Params.disableTextInHeader | default true }}
+    <a href="{{ "" | relLangURL }}" class="text-base font-bold truncate min-w-0 shrink">
+      {{ .Site.Title | markdownify }}
+    </a>
+  {{ end }}
+
+  {{/* CENTRO: Menu principale (solo Chi sono, Progetti, Blog) - centrato vero */}}
+  <nav class="hidden md:flex items-center flex-1 justify-center">
+    {{ partial "header/components/desktop-menu.html" . }}
+  </nav>
+
+  {{/* DESTRA: Social icons + lang + theme toggle + mobile menu */}}
+  <div class="flex items-center ms-auto gap-x-1">
+    {{/* Social icons - GitHub */}}
+    {{ range .Site.Menus.main }}
+      {{ if and (eq .Identifier "github") .URL }}
+        <a
+          href="{{ .URL }}"
+          target="_blank"
+          rel="me"
+          class="text-xl bf-icon-color-hover hidden md:flex px-1"
+          aria-label="GitHub"
+          title="GitHub">
+          {{ partial "icon.html" "github" }}
+        </a>
+      {{ end }}
+    {{ end }}
+
+    {{/* Social icons - LinkedIn */}}
+    {{ range .Site.Menus.main }}
+      {{ if and (eq .Identifier "linkedin") .URL }}
+        <a
+          href="{{ .URL }}"
+          target="_blank"
+          rel="me"
+          class="text-xl bf-icon-color-hover hidden md:flex px-1"
+          aria-label="LinkedIn"
+          title="LinkedIn">
+          {{ partial "icon.html" "linkedin" }}
+        </a>
+      {{ end }}
+    {{ end }}
+
+    {{/* Social icons - Email */}}
+    {{ range .Site.Menus.main }}
+      {{ if and (eq .Identifier "email") .URL }}
+        <a
+          href="{{ .URL }}"
+          class="text-xl bf-icon-color-hover hidden md:flex px-1"
+          aria-label="Email"
+          title="Email">
+          {{ partial "icon.html" "envelope" }}
+        </a>
+      {{ end }}
+    {{ end }}
+
+    {{/* Language selector */}}
+    {{ if .IsTranslated }}
+      <div class="hidden md:flex px-2">
+        {{ partial "header/components/translations.html" . }}
+      </div>
+    {{ end }}
+
+    {{/* Dark/Light mode toggle - SOLO DESKTOP */}}
+    {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-xl bf-icon-color-hover hidden md:flex px-1">
+        <div class="flex items-center justify-center dark:hidden">
+          {{ partial "icon.html" "moon" }}
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          {{ partial "icon.html" "sun" }}
+        </div>
+      </button>
+    {{ end }}
+
+    {{/* Mobile menu button - SOLO MOBILE */}}
+    <div class="flex md:hidden">
+      {{ partial "header/components/mobile-menu.html" . }}
+    </div>
+  </div>
+</div>
+
+{{/* Sub-navigation menu (if configured) */}}
+{{ if .Site.Menus.subnavigation }}
+  <div
+    class="main-menu flex pb-3 flex-col items-end justify-between md:justify-start space-x-3">
+    <div class="hidden md:flex items-center space-x-3">
+      {{ range .Site.Menus.subnavigation }}
+        <a
+          href="{{ .URL }}"
+          {{ if or (strings.HasPrefix .URL "http:" ) (strings.HasPrefix .URL "https:" ) }}
+            target="_blank"
+          {{ end }}
+          class="flex items-center bf-icon-color-hover">
+          {{ if .Pre }}
+            <span {{ if and .Pre .Name }}class="mr-1"{{ end }}>
+              {{ partial "icon.html" .Pre }}
+            </span>
+          {{ end }}
+          <span class="text-xs font-light" title="{{ .Title }}">
+            {{ .Name | markdownify }}
+          </span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
+
+{{/* Highlight current menu area */}}
+{{ if .Site.Params.highlightCurrentMenuArea }}
+  <script>
+    (function () {
+      var mainmenu = document.querySelector(".main-menu");
+      if (!mainmenu) return;
+
+      var path = window.location.pathname;
+      var links = mainmenu.querySelectorAll('a[href="' + path + '"]');
+
+      links.forEach(function (link) {
+        var targets = link.querySelectorAll("span");
+        targets.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    })();
+  </script>
+{{ end }}
