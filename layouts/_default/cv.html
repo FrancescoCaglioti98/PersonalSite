@@ -15,16 +15,26 @@
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
         {{ .Title | emojify }}
       </h1>
-      {{ with .Params.description }}
-        <p class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400">{{ . }}</p>
+      {{ with .Params.subtitle }}
+        <p class="mt-1 mb-1 text-lg text-neutral-700 dark:text-neutral-300">{{ . }}</p>
+      {{ end }}
+      {{ with .Params.location }}
+        <p class="mt-0 mb-6 text-base text-neutral-500 dark:text-neutral-400">{{ . }}</p>
       {{ end }}
     </header>
 
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
       <div class="min-w-0 min-h-0 max-w-prose mb-20">
-        {{ with .Content }}
-          {{ . }}
+
+        {{ with .Params.contacts }}
+          <p class="cv-contacts">
+            {{ range $i, $c := . }}
+              {{ if $i }} · {{ end }}<a href="{{ $c.url }}"{{ if not (hasPrefix $c.url "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $c.label }}</a>
+            {{ end }}
+          </p>
         {{ end }}
+
+        {{ with .Content }}{{ . }}{{ end }}
 
         {{ with .Params.current }}
           <h2>{{ i18n "cv.currently" }}</h2>
@@ -70,26 +80,66 @@
 
         <hr>
 
+        {{ with .Params.projects }}
+          <h2>{{ i18n "cv.projects" }}</h2>
+          {{ range . }}
+            <div class="cv-experience">
+              <div class="cv-experience-header">
+                <h3 class="cv-experience-role">
+                  {{ .name }}
+                  {{- with .label }} <span class="cv-experience-meta">| {{ . }}</span>{{ end }}
+                </h3>
+                {{ with .tech }}<span class="cv-experience-period">{{ . }}</span>{{ end }}
+              </div>
+              {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+            </div>
+          {{ end }}
+        {{ end }}
+
         {{ with .Params.skills }}
           <h2>{{ i18n "cv.skills" }}</h2>
-          <div class="cv-skills">
-            {{ range . }}<span class="cv-skill">{{ . }}</span>{{ end }}
+          <div class="cv-current">
+            {{ range . }}
+              <div class="cv-current-item">
+                <span class="cv-current-label">{{ .group }}</span>
+                <span class="cv-current-value">{{ .items }}</span>
+              </div>
+            {{ end }}
           </div>
         {{ end }}
 
-        {{ with .Params.methodologies }}
-          <h2>{{ i18n "cv.methodologies" }}</h2>
-          <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+        {{ with .Params.education }}
+          <h2>{{ i18n "cv.education" }}</h2>
+          {{ range . }}
+            <div class="cv-experience">
+              <div class="cv-experience-header">
+                <h3 class="cv-experience-role">
+                  {{ .title }}
+                  {{- with .note }} <span class="cv-experience-meta">| {{ . }}</span>{{ end }}
+                </h3>
+                {{ with .period }}<span class="cv-experience-period">{{ . }}</span>{{ end }}
+              </div>
+            </div>
+          {{ end }}
         {{ end }}
-        
-        <hr>
-        
-        {{ with .Params.projects }}
-          <h2>{{ i18n "cv.projects" }}</h2>
+
+        {{ with .Params.languages }}
+          <h2>{{ i18n "cv.languages" }}</h2>
           <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
         {{ end }}
 
-        
+        {{ with .Params.interests }}
+          <h2>{{ i18n "cv.interests" }}</h2>
+          <div class="cv-interests">
+            {{ range . }}
+              <div class="cv-interest">
+                <p class="cv-interest-title">{{ .name }}</p>
+                <p class="cv-interest-desc">{{ .description }}</p>
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+
       </div>
     </section>
   </article>

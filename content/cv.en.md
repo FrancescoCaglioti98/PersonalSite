@@ -1,7 +1,7 @@
 ---
 title: "Francesco Caglioti"
 date: 2025-09-27
-description: "Backend Engineer specialized in PHP, Laravel and Symfony. Passionate about HomeLab, self-hosting and open source technologies."
+description: "Software Engineer — backend PHP, Symfony and Go. 4+ years of experience, currently at Iliad Italia."
 draft: false
 layout: "cv"
 categories: ["cv"]
@@ -14,86 +14,85 @@ showReadingTime: false
 sharingLinks: false
 showHero: true
 
+subtitle: "Software Engineer — Backend · PHP · Symfony · Go"
+location: "Milan area, Italy"
+
+contacts:
+  - label: "personal@fcaglioti.cc"
+    url: "mailto:personal@fcaglioti.cc"
+  - label: "linkedin.com/in/frcaglioti"
+    url: "https://linkedin.com/in/frcaglioti"
+  - label: "github.com/FrancescoCaglioti98"
+    url: "https://github.com/FrancescoCaglioti98"
+
+current:
+  role: "Software Engineer @ Iliad Italia"
+  stack: "PHP 8.3, Symfony 6.4, PostgreSQL, Go, Docker"
+
 experiences:
-  - role: "Backend Engineer"
+  - role: "Software Engineer"
     company: "Iliad Italia"
     location: "Milan"
-    period: "2024 - present"
-    description: "I work as a Backend Developer in an Agile team, taking part in **Sprint Planning**, **Daily Stand-ups** and Retrospectives to continuously improve our development processes."
+    period: "Aug 2024 – Present"
+    description: "PHP/Symfony backend of the business customer management platform. Agile (Scrum, Kanban)."
     highlights:
-      - "Development and maintenance of robust APIs using **Symfony** with the **ApiPlatform** package."
-      - "**Performance optimization** of existing applications to ensure scalability and reliability."
-      - "Implementation of security measures to protect sensitive customer data."
-      - "Use of **Docker** for building and managing development and production environments, with automated release processes on **K8s**."
-      - "Writing **automated tests** with **PHPUnit** to ensure code quality and reduce bugs."
-      - "Participation in **code reviews** to maintain high code-quality standards."
+      - "Co-designed a new **multi-tenant billing service in Go** with the backend team: scoped the MVP, wrote the first lines of code, currently one of its two active developers."
+      - "Built the **complaints management system end to end**: customers now open investigation cases from their own account area without calling customer care, which in turn gets full visibility on case progress."
+      - "Rewrote the **mock server for external services** (billing, network line provisioning): a Docker service that intercepts partner API calls and optionally proxies them. Used by the whole backend, frontend and QA team, it removed our dependency on partner development environments for staging tests."
+      - "Introduced **PHPStan and PHP CS Fixer** into the main project's GitLab CI pipelines, moving static analysis and code style from manual review to automated checks on every merge request."
+      - "**REST API development** with Symfony and API Platform, event queues with Messenger, unit and functional tests (PHPUnit) on every new feature; migrated address lookup APIs from a legacy Elasticsearch system to centralised services."
 
   - role: "Web Developer"
-    company: "Atik S.R.L."
-    location: "Lissone"
-    period: "2022 - 2024"
-    description: "I worked as a Web Developer at a company distributing a proprietary ERP system, designed specifically for small and medium-sized businesses. The system featured deep integration with the Microarea management software, offering tailored solutions for business needs."
+    company: "Atik S.r.l."
+    location: "Lissone (Italy)"
+    period: "Apr 2022 – Aug 2024"
+    description: "In-house ERP/CRM for small and medium businesses (PHP 5.6), integrated with Microarea Mago ERP via direct database access and XML APIs. Around 50 customers, each with a dedicated on-premise or managed installation."
     highlights:
-      - "Improving existing modules, making the user interface more intuitive and **optimizing** data handling."
-      - "Reducing load times by over **50%**, improving overall efficiency."
-      - "Collaborating on new solutions in **Laravel** with **PHP 8.X** and a custom CRM with PHP 5.6."
-      - "Maintaining and improving existing features to keep them up to date."
-      - "**Designing and developing** new solutions to address emerging needs."
-      - "Managing a nationwide customer base, providing constant support and assistance."
-      - "Developing **custom APIs** to satisfy specific client requirements."
-      - "Defining **Git** workflows to improve collaboration and source-code management."
-      - "Setting up and creating development environments with **Docker** to ensure consistency and ease of deployment."
+      - "Rebuilt the **e-commerce module from scratch**, single-handedly, with several integrated channels (Amazon, eBay, Shopify, PrestaShop and others): replaced runtime data conversion with normalisation at ingestion into a canonical JSON format shared across all platforms. Order list load time went **from roughly 2 minutes to under 5 seconds**."
+      - "Designed the module configuration layer: SKU mapping between storefront and ERP, and handling of bundle SKUs. Also wrote the PrestaShop connector installed on the customer side."
+      - "**Introduced version control** in a team that worked without it, developing over SSH on one shared server; later moved development to isolated local Docker environments."
+      - "Wrote the **remote module update script** for customer installations, removing manual deployment work on each environment."
+      - "Designed and delivered **3 bespoke applications** for customers with non-standard needs, working full stack on my own (Laravel, Vue.js, PrimeVue): requirements gathering with the client, interface design, frontend and backend development, and final acceptance checks."
+      - "Built a configurable automated email module for leads (reminders, appointments) using the **Office 365 Microsoft Graph API**. CentOS server administration, cron jobs and production troubleshooting."
 
-  - role: "Other work experiences"
-    period: "2020 - 2022"
-
-skills:
-  - "PHP"
-  - "Laravel / Symfony"
-  - "PHPUnit"
-  - "MySQL / PostgreSQL / MariaDB"
-  - "JavaScript"
-  - "jQuery"
-  - "Vue.js"
-  - "Git"
-  - "Docker"
-
-methodologies:
-  - "Experience with **Agile** methodologies, including **Scrum** and **Kanban**."
-  - "Participation in Sprint Planning, Daily Stand-ups and Retrospectives."
-  - "Use of project-management tools like **Jira** or **ClickUp**."
+  - role: "Earlier roles"
+    period: "2020 – 2022"
+    description: "Teaching assistant, Computer Technologies — Puecher-Olivetti technical high school, Rho (Mar – Jun 2021) · ServiceNow administrator, Blue IT (Sep 2021 – Jan 2022): workflow configuration, user management, first scripting · Customer service and technical support (Amazon; Sielte for Vodafone) · Startup in the security and risk-management sector."
 
 projects:
-  - "Use of the **Office365 Graph API** for integrating mail sending and calendar event management within the Atik S.R.L. ERP."
-  - "Development of a custom **CRM** to optimize warehouse management and simplify shipping logistics to client locations. (WIP)"
-  - "This website, a constant WIP as I keep improving it and adding small features."
-  - "**HomeLab**: I built my own HomeLab where I run several small services to make my life easier."
+  - name: "Multi-tenant B2B SaaS platform"
+    label: "personal project"
+    tech: "Laravel, PostgreSQL"
+    description: "Fleet, driver, warehouse and shipment management for logistics companies. Multi-tenant data isolation on a shared database, implemented without third-party packages: automatic global scopes on models, per-request tenant context, tenant impersonation for support, UUID identifiers and automated cross-tenant isolation tests. [Architecture written up here](/en/article/saas-multi-tenant/saas-multi-tenant-laravel/)."
+
+skills:
+  - group: "Languages"
+    items: "PHP 8.3 · Go (in production since 2026, still learning) · JavaScript · SQL · Bash"
+  - group: "Frameworks"
+    items: "Symfony 6.4 · API Platform · Symfony Messenger · Laravel · Vue.js / PrimeVue"
+  - group: "Databases"
+    items: "PostgreSQL · MySQL / MariaDB · Redis · Elasticsearch"
+  - group: "Quality"
+    items: "PHPUnit · PHPStan · PHP CS Fixer · code review · Agile (Scrum, Kanban)"
+  - group: "Tooling"
+    items: "Docker · Git · GitLab CI · Nginx · Jira · ClickUp"
+
+education:
+  - title: "Technical diploma in IT and Telecommunications (Computer Science track)"
+    period: "2017"
+  - title: "University of Pisa — Electronic Engineering"
+    note: "coursework only, degree not completed"
+    period: "2017 – 2020"
+
+languages:
+  - "Italian native"
+  - "English B1/B2 — fluent technical reading, intermediate conversation"
 
 interests:
   - name: "Homelab"
-    description: "Proxmox, Home Assistant, Paperless and self-hosted services"
-  - name: "Self-Hosting"
-    description: "Docker, automations and new technologies"
-  - name: "Mountains"
-    description: "Trekking and skiing to decompress"
-  - name: "Learning"
-    description: "New technologies, documentation and continuous improvement"
-
-current:
-  role: "Backend Engineer @ Iliad Italia"
-  stack: "PHP, Symfony, Docker, K8s, MySQL"
+    description: "Proxmox, LXC containers, reverse proxy with SSL, networking and self-hosted services"
+  - name: "Technical writing"
+    description: "The articles on this site, where I write up technical decisions and mistakes"
 ---
 
-## Hi, I'm Francesco
-
-Backend Engineer based in Milan, building distributed APIs and systems for Iliad Italia.
-
-**What I do all day:**
-- RESTful APIs with **Symfony** and **ApiPlatform**
-- Containerization and orchestration with **Docker** and **Kubernetes**
-- Performance tuning and code quality
-
-**Outside code:**
-I manage a homelab with Proxmox, self-host everything I can, and try to spend as much time as possible in the mountains when the screen becomes too big.
-
----
+Backend developer with 4+ years in PHP, from legacy PHP 5.6 to PHP 8.3 with Symfony. Currently on the backend of a business customer management platform, where I co-design a multi-tenant billing service in Go. I have worked on both architectural models: around 50 single-tenant installations deployed at customer sites, and multi-tenant systems on a shared database designed from scratch.
