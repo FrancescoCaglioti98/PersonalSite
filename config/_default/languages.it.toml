@@ -8,9 +8,9 @@ title = "Francesco Caglioti"
   displayName = "IT"
   isoCode = "it"
   rtl = false
-  dateFormat = "2 gennaio 2006"
+  dateFormat = ":date_long"
   logo = "img/hero_image.png"
-  description = "Il mio sito personale"
+  description = "Software Engineer in Iliad Italia. Scrivo di multi-tenancy, isolamento dei dati e testing di sistemi distribuiti."
   # secondaryLogo = "img/secondary-logo.png"
   #copyright = "Copy, _right?_ :thinking_face:"
 
@@ -19,8 +19,8 @@ title = "Francesco Caglioti"
    email = "personal@fcaglioti.cc"
    image = "https://avatars.githubusercontent.com/u/91256439?v=4"
    imageQuality = 96
-   headline = "A passionate Web Developer who prefers Backend Development."
-   bio = "Hi, i'm Francesco"
+   headline = "Software Engineer — backend PHP, Symfony e Go"
+   bio = "Ciao, sono Francesco"
    links = [
 #     { email = "mailto:personal@fcaglioti.cc" },
 #     { link = "https://link-to-some-website.com/" },
