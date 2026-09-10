@@ -8,14 +8,12 @@ tags: ["multi-tenant", "laravel", "eloquent", "postgresql", "saas"]
 keywords: ["laravel multi-tenant", "saas isolamento dati", "global scope eloquent", "tenant isolation"]
 showAuthorBottom: true
 showHero: true
-series: ["Architettura di un SaaS Multi-Tenant"]
-series_order: 1
 sitemap:
   priority: 0.7
 ---
 ## Il Progetto
 
-Ho appena finito di creare una piattaforma SaaS per aiutare le aziende di trasporti a gestire i loro servizi. Questa piattaforma è un sistema B2B multi-tenant, cioè ogni azienda cliente ha il proprio spazio dove può gestire la sua flotta, i suoi autisti, i magazzini ed i trasporti, senza vedere dati e/o azioni degli altri clienti.
+Ho creato una piattaforma SaaS per aiutare le aziende di trasporti a gestire i loro servizi. È un progetto personale, nato per noia e cresciuto in un tentativo di prodotto che non è mai diventato tale: la scheda sintetica sta nella [pagina progetti](/projects/). Questa piattaforma è un sistema B2B multi-tenant, cioè ogni azienda cliente ha il proprio spazio dove può gestire la sua flotta, i suoi autisti, i magazzini ed i trasporti, senza vedere dati e/o azioni degli altri clienti.
 
 Quando ho iniziato a progettare la piattaforma non sapevo se utilizzare database diversi per ogni cliente o crearne uno solo condiviso.
 
@@ -106,24 +104,36 @@ Ora resta una domanda importante, chi sarà la mia fonte di verità in merito al
 Ho deciso di creare una classe TenantContext, un oggetto singleton che mantiene lo stato del tenant per l'intera durata della richiesta. Sarà lui la mia fonte di verità.
 Il context viene applicato a tutte le richieste in ingresso grazie ad un Middleware specifico. Questo rende il sistema testabile e indipendente dal driver di autenticazione (web, API, o CLI).
 
-Ho creato un trait `BelongsToTenant` che automatizza sia la lettura che la scrittura:
+Lo scope vive in una classe sua, e un trait `BelongsToTenant` lo attacca al model automatizzando sia la lettura che la scrittura. Il `qualifyColumn` serve perché appena ci sono delle join il `tenant_id` va qualificato con la tabella, altrimenti la query diventa ambigua:
+
+```php
+final class TenantScope implements Scope
+{
+    public function apply(Builder $builder, Model $model): void
+    {
+        $context = app(TenantContext::class);
+
+        if ($context->isSet()) {
+            $builder->where($model->qualifyColumn('tenant_id'), $context->id());
+        }
+    }
+}
+```
 
 ```php
 trait BelongsToTenant
 {
     public static function bootBelongsToTenant(): void
     {
-        static::addGlobalScope('tenant', function (Builder $query) {
-            $context = app(TenantContext::class);
-            if ($context->isSet()) {
-                $query->where('tenant_id', $context->id());
-            }
-        });
+        static::addGlobalScope(new TenantScope());
 
-        static::creating(function (Model $model) {
-            $context = app(TenantContext::class);
-            if ($context->isSet() && !$model->tenant_id) {
-                $model->tenant_id = $context->id();
+        static::creating(function (self $model): void {
+            if (! $model->getAttribute('tenant_id')) {
+                $context = app(TenantContext::class);
+
+                if ($context->isSet()) {
+                    $model->setAttribute('tenant_id', $context->id());
+                }
             }
         });
     }
@@ -131,6 +141,24 @@ trait BelongsToTenant
 ```
 
 Ogni model che rappresenta un'entità del tenant (Clienti, Veicoli, Trasporti, ecc.) ha questo trait. In questo modo, non solo le query sono filtrate, ma non devo nemmeno ricordarmi di assegnare il `tenant_id` quando salvo un nuovo oggetto.
+
+## Il punto debole: quando il context è vuoto
+
+Rileggendo quel codice c'è una cosa che salta all'occhio, e ci ho messo un po' a vederla: se il context non è popolato, `isSet()` restituisce `false` e la clausola `where` non viene mai aggiunta. La query non fallisce. Gira senza filtro e vede i dati di tutti i tenant.
+
+Non è un caso di scuola. Fuori dal ciclo richiesta-HTTP il context vuoto è il default, perché non c'è nessun middleware che lo popoli: comandi Artisan, job in coda, seeder, scheduler, tinker.
+
+E lo stesso `isSet()` governa anche la scrittura. Se il context manca, `creating` non assegna niente e la riga finisce a database con `tenant_id` nullo, che è un modo silenzioso di creare dati che non appartengono a nessuno.
+
+Vale la pena dire come sta la faccenda nel mio caso, invece di far finta di averla risolta. Oggi non mi morde, ma non per bravura: non ho comandi Artisan e non ho job. L'unica cosa che finisce davvero in coda è una Mailable con `ShouldQueue` che serializza il tenant e l'utente, e il model `User` non usa `BelongsToTenant`. Regge per costruzione, non per fortuna. La differenza però conta, perché il giorno che aggiungo un job che tocca i trasporti il comportamento predefinito è "vedo tutto".
+
+Le strade che ho valutato, con i loro compromessi:
+
+- **Lanciare un'eccezione quando il context manca.** È la più sicura e la più scomoda: ogni pezzo di codice fuori dall'HTTP deve dichiarare per chi sta lavorando, seeder e test compresi. Rompe subito e rumorosamente, che è esattamente quello che voglio da un filtro di sicurezza.
+- **Distinguere il contesto di esecuzione.** Eccezione quando la richiesta arriva dal web, tolleranza quando si gira da CLI. Sembra pragmatico ma sposta la sicurezza su una condizione ambientale, e un job in coda è CLI a tutti gli effetti: darei via libera proprio dove il filtro mi serve.
+- **Richiedere un opt-out dichiarato.** Il filtro resta sempre attivo e chi ha davvero bisogno di leggere tutto lo scrive: `Transport::withoutTenantScope()`. Il vantaggio è che l'accesso globale diventa una cosa che si trova con un `grep`.
+
+Quella che prenderei è la terza con la prima come rete: scope sempre attivo, eccezione se il context manca, e un opt-out esplicito e cercabile per i casi legittimi. Non l'ho ancora fatta perché finché non ho job in coda il rischio resta potenziale, e preferisco scriverlo qui piuttosto che raccontare di averlo sistemato.
 
 ## Il Middleware EnsureTenantAccess
 
@@ -194,17 +222,21 @@ Niente logica sparsa nei controller, tutto centralizzato.
 ## Anti-Pattern che ho imparato ad evitare
 
 - **Assegnazione manuale del tenant_id**: Se lo facessi prima o poi me ne dimenticherei (come è successo più di una volta). Qua tornano comodi i test ed il `BelongsToTenant`.
-- **Unique index senza scope**: Tutti gli indici che creo sulle entità verranno quasi sempre verificati in combinazione con il `tenant_id`.
+- **Unique index senza scope**: Tutti gli indici che creo sulle entità verranno quasi sempre verificati in combinazione con il `tenant_id`. Due aziende diverse possono avere un veicolo con la stessa targa, quindi il vincolo va sulla coppia, non sulla colonna:
+
+```php
+Schema::create('vehicles', function (Blueprint $table) {
+    $table->unique(['tenant_id', 'plate']);
+});
+```
+
+  L'eccezione voluta nel mio schema è `users.email`, che resta unica a livello globale: l'autenticazione deve trovare l'utente prima che un context esista, quindi lì un vincolo per tenant non avrebbe senso.
 - **Usare gli ID incrementali**: Per i tenantId preferisco utilizzare gli **UUID**. Evita che qualcuno possa "tirare ad indovinare" l'id di un diverso cliente.
 
 ## Conclusione
 
-Un SaaS multitenant creato con Laravel non è fondamentalmente una questione di codice, ma di "fiducia nel sistema che hai costruito" e "mancanza di fiducia nelle persone".
-La soluzione a DB singolo è la più equilibrata per la maggior parte dei prodotti simili a questo. Questa soluzione offre la massima tranquillità grazie a GlobalScope Automation, oltre alla rapidità di sviluppo, rilascio e manutenzione che non si potrebbe ottenere con dei DB per tenant.
+Cosa terrei: il database condiviso, il global scope automatico e gli UUID come identificatori. Il database unico si è ripagato in manutenzione e in costi, e il global scope mi ha risparmiato in blocco la classe di bug in cui ti dimentichi un `where`.
 
-Per approfondire questo aspetto, se dovessi rifare tutto da zero, non modificherei la struttura base che ho stabilito, piuttosto mi concentrerei maggiormente sulla creazione di test estremi sin da subito.
+Cosa rifarei: i test di isolamento dal primo giorno, non dopo. Li ho scritti quando la struttura era già in piedi, e li ho scritti perché non mi fidavo di quello che avevo costruito. Se li avessi avuti prima, il buco del context vuoto lo avrei visto subito, invece di trovarlo rileggendo il mio stesso codice per scrivere questo articolo.
 
-Laravel offre un eccellente documentazione su come utilizzare GlobalScope, ma si possono utilizzare anche pacchetti come spatie/laravel-multitenancy per creare applicazioni multi-tenant.
-L'aspetto più importante di questo post è testare con una propria implementazione, in modo da avere il massimo controllo sul codice e su come viene scritto (con i suoi drawback).
-
-Per esempio l'utilizzo del super-admin non sarebbe stato di immediata implementazione con pacchetti esterni.
+La regola che mi porto via: in un multi-tenant l'unico test che conta non verifica che la feature funzioni. Verifica che il cliente A non veda il cliente B. Quello lo scrivi per primo.
