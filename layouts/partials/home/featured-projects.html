@@ -1,0 +1,53 @@
+{{ with site.GetPage "/projects" }}
+  {{ $featured := where .Params.projects "featured" true }}
+  {{ with $featured }}
+    <div class="mb-8 mt-12">
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+        {{ i18n "projects.featuredTitle" }}
+      </h2>
+      <div class="h-1 w-20 bg-gradient-to-r from-primary-500 to-primary-300 rounded-full"></div>
+    </div>
+
+    <div class="projects-grid">
+      {{ range . }}
+        {{ $p := . }}
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-card-title-section">
+              <h3 class="project-card-title">{{ .name }}</h3>
+              {{ with .status }}
+                <span class="project-status project-status-{{ . }}">
+                  {{ i18n (printf "projects.status.%s" .) }}
+                </span>
+              {{ end }}
+            </div>
+            {{ with .period }}<span class="project-period">{{ . }}</span>{{ end }}
+          </div>
+
+          <p class="project-card-description">{{ .description }}</p>
+
+          {{ with .tech }}
+            <div class="project-tech-stack">
+              {{ range . }}<span class="project-tech-badge">{{ . }}</span>{{ end }}
+            </div>
+          {{ end }}
+
+          {{ with .link }}
+            <div class="project-card-footer">
+              <a href="{{ . }}" class="project-link"{{ if not (hasPrefix . "/") }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ $p.linkText | default (i18n "projects.linkText") }}
+                <span class="project-link-icon">&rarr;</span>
+              </a>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="mt-4 text-right">
+      <a class="text-primary-700 dark:text-primary-400 hover:underline" href="{{ (site.GetPage "/projects").RelPermalink }}">
+        {{ i18n "projects.allProjects" }} &rarr;
+      </a>
+    </div>
+  {{ end }}
+{{ end }}

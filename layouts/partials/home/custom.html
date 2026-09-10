@@ -2,14 +2,21 @@
 <div id="hero">
   {{ partial "home/hero.html" . }}
 </div>
-<!--
+
 <section class="max-w-7xl mx-auto px-4">
   {{ partial "aboutme.html" . }}
 </section>
--->
+
+<section class="max-w-7xl mx-auto px-4">
+  {{ partial "recent-articles/main.html" . }}
+</section>
+
+<section class="max-w-7xl mx-auto px-4">
+  {{ partial "home/featured-projects.html" . }}
+</section>
+
 <script
   defer
   type="text/javascript"
   src="{{ $jsHome.RelPermalink }}"
   integrity="{{ $jsHome.Data.Integrity }}"></script>
-

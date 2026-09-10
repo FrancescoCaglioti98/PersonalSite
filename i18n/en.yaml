@@ -4,6 +4,8 @@ cv:
   methodologies: "Working Methodologies"
   projects: "Projects"
   interests: "Outside Work"
+  education: "Education"
+  languages: "Languages"
   currently: "Currently"
   role: "Role"
   stack: "Stack"
@@ -17,32 +19,30 @@ projects:
   resultsTitle: "Results"
   linkText: "Learn more"
   calendlyText: "Book a call"
+  featuredTitle: "Featured Projects"
+  allProjects: "All projects"
 
 homepage:
   whatIDo: "What I Do"
-  whatIDoIntro: "Backend Engineer based in Milan, building distributed APIs and systems."
-  
+  whatIDoIntro: "I'm interested in how you keep different customers' data separated inside the same database, and in how you make a system that depends on external services testable. For a living I'm a Software Engineer at Iliad Italia: PHP and Symfony backend on a business customer management platform, plus a multi-tenant billing service in Go that I'm co-designing."
+
   skills:
-    php: "Backend Development"
-    phpDesc: "Laravel, Symfony, Docker"
+    backend: "Backend"
+    backendDesc: "PHP 8.3, Symfony 6.4, API Platform"
     database: "Database"
-    databaseDesc: "MySQL, PostgreSQL"
-    testing: "Testing"
-    testingDesc: "PHPUnit, Integration tests"
-  
+    databaseDesc: "PostgreSQL, MySQL"
+    quality: "Testing and quality"
+    qualityDesc: "PHPUnit, PHPStan, PHP CS Fixer"
+    go: "Go"
+    goDesc: "Still learning, in production since 2026"
+
   outsideWork: "Outside Work"
-  outsideWorkIntro: "When I'm not coding, I manage my homelab and spend time in the mountains."
-  
+  outsideWorkIntro: "When I'm not writing code for work I run my homelab, and I try to write up what I learn."
+
   hobbies:
     homelab: "Homelab"
-    homelabDesc: "Proxmox, HA, Paperless"
-    selfhosting: "Self-Hosting"
-    selfhostingDesc: "Docker, automations"
-    mountains: "Mountains"
-    mountainsDesc: "Trekking, Camping"
-  
-  currently: "Currently"
-  role: "Role"
-  roleValue: "Backend Engineer @ Iliad Italia"
-  stack: "Stack"
-  stackValue: "PHP, Symfony, Laravel, Docker, MySQL"
+    homelabDesc: "Proxmox, LXC containers, reverse proxy with SSL"
+    selfhosting: "Self-hosting"
+    selfhostingDesc: "Docker, personal services"
+    writing: "Technical writing"
+    writingDesc: "The articles on this site"
