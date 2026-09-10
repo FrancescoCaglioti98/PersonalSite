@@ -8,13 +8,28 @@ sitemap:
   priority: 0.8
 
 projects:
+  - name: "Transport SaaS"
+    description: "Multi-tenant B2B platform for transport companies: each customer company manages its own fleet, drivers, warehouses and shipments in its own isolated space. Personal project, started out of boredom and grown into an attempt at a product that never became one."
+    period: "2026"
+    role: "Personal project"
+    featured: true
+    tech: ["Laravel", "PostgreSQL", "Docker"]
+    link: "/en/article/saas-multi-tenant/saas-multi-tenant-laravel/"
+    linkText: "How the isolation works"
+    highlights:
+      - "Multi-tenant isolation on a shared database, without third-party packages"
+      - "Automatic global scopes on models and a per-request tenant context"
+      - "Tenant impersonation for support"
+      - "UUID identifiers and automated cross-tenant isolation tests"
+
   - name: "HomeLab"
     description: "My home laboratory where I experiment with self-hosting, automation, and personal services."
     period: "2024 - present"
     role: "Maintainer"
     status: "active"
+    featured: true
     tech: ["Proxmox", "Docker", "Tailscale", "Nginx Proxy Manager", "HomeAssistant"]
-    link: "/Article/Tailscale/"
+    link: "/en/article/tailscale/"
     linkText: "See technical details"
     highlights:
       - "HomeAssistant for home automation"
@@ -29,24 +44,12 @@ projects:
     status: "active"
     tech: ["Hugo", "Blowfish Theme", "Tailwind CSS", "Cloudflare Workers"]
     link: "https://github.com/FrancescoCaglioti98/PersonalSite"
-    linkText: "Contribute on GitHub"
+    linkText: "See the code on GitHub"
     highlights:
       - "Bilingual (Italian/English)"
       - "Automatic dark mode"
       - "Analytics with Umami"
       - "Automated deploy via GitHub Actions"
-
-  - name: "Custom CRM"
-    description: "Custom CRM system to optimize warehouse management and simplify transport logistics."
-    period: "2026 - present"
-    role: "Backend Developer"
-    status: "wip"
-    tech: ["PHP", "MySQL", "Docker"]
-    highlights:
-      - "Real-time warehouse management"
-      - "Delivery route optimization"
-      - "Integration with existing systems"
-      - "Advanced reporting"
 
   - name: "Office365 Graph API Integration"
     description: "Integration of Office365 Graph APIs for email and calendar management in a business ERP."
